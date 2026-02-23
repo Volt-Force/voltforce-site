@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engagement | VoltForce</title>
+<meta name="description" content="VoltForce engagement models: Retained Search and Talent Partner. Transparent, fair pricing at up to 1/3 the cost of most agencies. Founder-led recruitment for cleantech, deeptech, and advanced manufacturing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0B1D3A;
+    --navy-deep: #081628;
+    --navy-mid: #132B4F;
+    --navy-light: #1A3A6B;
+    --navy-surface: #0F2440;
+    --teal: #2EC4B6;
+    --teal-dim: rgba(46, 196, 182, 0.12);
+    --teal-glow: rgba(46, 196, 182, 0.25);
+    --gold: #D4A853;
+    --gold-dim: rgba(212, 168, 83, 0.10);
+    --white: #FFFFFF;
+    --text-bright: rgba(255, 255, 255, 0.95);
+    --text-main: rgba(255, 255, 255, 0.78);
+    --text-muted: rgba(255, 255, 255, 0.50);
+    --text-dim: rgba(255, 255, 255, 0.35);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-teal: rgba(46, 196, 182, 0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* ════════════════════════════════════════════
+     NAV
+  ════════════════════════════════════════════ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 0 40px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(11, 29, 58, 0.85);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo span { font-size: 16px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-bright); }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.25s ease; letter-spacing: 0.3px; }
+  .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+  .nav-cta { font-size: 13px !important; font-weight: 600 !important; color: var(--white) !important; background: var(--teal); padding: 9px 22px; border-radius: 6px; transition: background 0.25s ease, transform 0.25s ease !important; }
+  .nav-cta:hover { background: #26A89C; transform: translateY(-1px); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .nav-toggle span { width: 24px; height: 2px; background: var(--text-bright); border-radius: 2px; }
+
+  /* ════════════════════════════════════════════
+     PAGE HERO
+  ════════════════════════════════════════════ */
+  .page-hero {
+    padding: 160px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(46, 196, 182, 0.05) 0%, transparent 70%), var(--navy);
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+  .page-hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; animation: fadeUp 0.5s ease-out 0.1s both; }
+  .page-hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5.5vw, 60px); font-weight: 700; font-style: italic; color: var(--text-bright); line-height: 1.12; margin-bottom: 24px; animation: fadeUp 0.6s ease-out 0.2s both; }
+  .page-hero-text { font-size: 17px; line-height: 1.8; color: var(--text-muted); margin-bottom: 12px; animation: fadeUp 0.6s ease-out 0.35s both; }
+  .page-hero-subtext { font-size: 16px; line-height: 1.8; color: var(--text-dim); animation: fadeUp 0.6s ease-out 0.45s both; }
+  .page-hero-prompt { font-size: 16px; color: var(--text-muted); margin-top: 40px; animation: fadeUp 0.5s ease-out 0.55s both; }
+
+  /* ════════════════════════════════════════════
+     PROCESS STEPS (ACCORDIONS)
+  ════════════════════════════════════════════ */
+  .process-section { max-width: 900px; margin: 0 auto; padding: 0 32px 80px; }
+
+  .accordion-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; margin-bottom: 12px; overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease;
+  }
+  .accordion-item:hover { border-color: rgba(255, 255, 255, 0.18); }
+  .accordion-item.active { border-color: var(--border-teal); background: rgba(46, 196, 182, 0.03); }
+  .accordion-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 28px; cursor: pointer; user-select: none;
+    transition: background 0.2s ease;
+  }
+  .accordion-header:hover { background: rgba(255, 255, 255, 0.02); }
+  .accordion-title { font-size: clamp(16px, 2.5vw, 22px); font-weight: 500; color: var(--text-bright); letter-spacing: 0.3px; }
+  .accordion-icon {
+    width: 32px; height: 32px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: transform 0.35s ease, border-color 0.3s ease;
+  }
+  .accordion-item.active .accordion-icon { transform: rotate(180deg); border-color: var(--teal); }
+  .accordion-icon svg { width: 14px; height: 14px; stroke: rgba(255, 255, 255, 0.6); stroke-width: 2; fill: none; }
+  .accordion-item.active .accordion-icon svg { stroke: var(--teal); }
+  .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  .accordion-item.active .accordion-body { max-height: 300px; }
+  .accordion-content { padding: 0 28px 24px; font-size: 15px; line-height: 1.75; color: var(--text-muted); }
+
+  /* ════════════════════════════════════════════
+     DIVIDERS
+  ════════════════════════════════════════════ */
+  .section-divider { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .divider-line { border: none; border-top: 1px solid var(--border-subtle); }
+
+  /* ════════════════════════════════════════════
+     FLAGSHIP MODELS
+  ════════════════════════════════════════════ */
+  .flagship-section { max-width: 1200px; margin: 0 auto; padding: 80px 32px 60px; }
+  .section-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .teal-rule { width: 48px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 28px; }
+  .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4.2vw, 46px); font-weight: 600; color: var(--text-bright); line-height: 1.15; margin-bottom: 16px; font-style: italic; }
+  .section-sub { font-size: 16px; line-height: 1.75; color: var(--text-muted); max-width: 700px; margin-bottom: 20px; }
+  .section-sub-highlight { font-size: 14px; color: var(--teal); font-weight: 500; margin-bottom: 56px; }
+
+  .flagship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .flagship-card {
+    border-radius: 20px; padding: 44px 36px 36px; position: relative;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .flagship-card:hover { transform: translateY(-5px); }
+
+  .card-retained {
+    background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy-surface) 100%);
+    border: 1px solid var(--border-teal); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  .card-retained:hover { box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(46, 196, 182, 0.06); }
+
+  .card-talent {
+    background: linear-gradient(160deg, #0E2A4A 0%, var(--navy-deep) 100%);
+    border: 1px solid var(--border-teal); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  .card-talent:hover { box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(46, 196, 182, 0.06); }
+
+  .card-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+  .badge-recommended { background: var(--teal); color: var(--navy); }
+  .badge-flagship { background: rgba(212, 168, 83, 0.18); color: var(--gold); border: 1px solid rgba(212, 168, 83, 0.3); }
+  .card-type { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: var(--text-bright); margin-bottom: 16px; line-height: 1.2; }
+  .card-desc { font-size: 15px; line-height: 1.7; color: var(--text-muted); margin-bottom: 20px; }
+  .card-desc strong { color: var(--text-main); font-weight: 600; }
+
+  .feat-list { list-style: none; margin-bottom: 28px; }
+  .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.55; color: var(--text-main); margin-bottom: 10px; }
+  .feat-check { color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 2px; font-size: 13px; }
+
+  .pricing-block { border-top: 1px solid var(--border-subtle); padding-top: 24px; }
+  .pricing-main { font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 6px; line-height: 1.5; }
+  .pricing-detail { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+  .pricing-detail span { display: block; margin-bottom: 2px; }
+  .pricing-compare { display: inline-block; margin-top: 10px; font-size: 11px; letter-spacing: 0.5px; color: var(--teal); opacity: 0.7; }
+
+  .tp-pricing-how { background: rgba(46, 196, 182, 0.05); border: 1px solid rgba(46, 196, 182, 0.1); border-radius: 12px; padding: 20px 22px; margin-bottom: 28px; }
+  .tp-pricing-how-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+  .tp-pricing-how p { font-size: 13.5px; line-height: 1.7; color: var(--text-muted); margin-bottom: 8px; }
+  .tp-pricing-how p:last-child { margin-bottom: 0; }
+  .tp-pricing-how strong { color: var(--text-main); }
+  .tp-highlight { color: var(--gold); font-weight: 600; }
+
+  /* ════════════════════════════════════════════
+     EXCLUSIVE ENGAGED BENEFITS
+  ════════════════════════════════════════════ */
+  .benefits-section { max-width: 1200px; margin: 0 auto; padding: 80px 32px; }
+  .benefits-header { text-align: center; margin-bottom: 56px; }
+  .benefits-headline { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 38px); font-weight: 600; color: var(--text-bright); font-style: italic; margin-bottom: 12px; }
+  .benefits-sub { font-size: 15px; color: var(--text-muted); max-width: 580px; margin: 0 auto; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .benefits-grid-2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+
+  .benefit-card {
+    background: var(--navy-surface); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 32px 28px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .benefit-card:hover { border-color: var(--border-teal); transform: translateY(-3px); }
+  .benefit-icon { width: 44px; height: 44px; background: var(--teal-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 20px; }
+  .benefit-title { font-size: 17px; font-weight: 600; color: var(--text-bright); margin-bottom: 10px; }
+  .benefit-text { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+
+  /* ════════════════════════════════════════════
+     OTHER SERVICE MODELS
+  ════════════════════════════════════════════ */
+  .other-section { max-width: 1200px; margin: 0 auto; padding: 80px 32px 100px; }
+  .other-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .other-headline { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 500; color: var(--text-muted); margin-bottom: 20px; }
+  .other-sub { font-size: 15px; line-height: 1.75; color: var(--text-dim); }
+  .other-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .other-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 26px 22px; transition: border-color 0.3s ease, background 0.3s ease; }
+  .other-card:hover { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); }
+  .other-card-title { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 10px; }
+  .other-card-text { font-size: 13px; line-height: 1.6; color: var(--text-dim); }
+
+  /* ════════════════════════════════════════════
+     CONTACT FORM
+  ════════════════════════════════════════════ */
+  .contact-section {
+    padding: 100px 32px;
+    background: linear-gradient(160deg, rgba(46, 196, 182, 0.04) 0%, transparent 40%), var(--navy-deep);
+  }
+  .contact-inner { max-width: 640px; margin: 0 auto; }
+  .contact-headline { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: var(--text-bright); font-style: italic; text-align: center; margin-bottom: 12px; }
+  .contact-sub { font-size: 15px; color: var(--text-muted); text-align: center; margin-bottom: 48px; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-size: 13px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.5px; }
+  .form-label .required { color: var(--teal); }
+  .form-input, .form-textarea {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text-bright);
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+  .form-input:focus, .form-textarea:focus { border-color: var(--teal); background: rgba(46, 196, 182, 0.04); }
+  .form-textarea { min-height: 140px; resize: vertical; }
+  .form-submit {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--teal);
+    color: var(--navy);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+    align-self: center;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: #26A89C; transform: translateY(-2px); }
+
+  /* ════════════════════════════════════════════
+     FOOTER
+  ════════════════════════════════════════════ */
+  .footer { background: var(--navy-deep); border-top: 1px solid var(--border-subtle); padding: 64px 40px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 48px; }
+  .footer-col-title { font-size: 14px; font-weight: 700; color: var(--text-bright); margin-bottom: 20px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { font-size: 15px; color: var(--text-dim); transition: color 0.25s ease; }
+  .footer-links a:hover { color: var(--teal); }
+  .newsletter-title { font-size: 18px; font-weight: 700; color: var(--text-bright); margin-bottom: 16px; }
+  .newsletter-form { display: flex; gap: 10px; }
+  .newsletter-input { flex: 1; padding: 12px 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-bright); outline: none; transition: border-color 0.3s ease; }
+  .newsletter-input::placeholder { color: var(--text-dim); }
+  .newsletter-input:focus { border-color: var(--teal); }
+  .newsletter-btn { padding: 12px 24px; background: var(--teal); color: var(--navy); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.25s ease; white-space: nowrap; }
+  .newsletter-btn:hover { background: #26A89C; }
+  .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--border-subtle); font-size: 13px; color: var(--text-dim); text-align: center; }
+
+  /* ════════════════════════════════════════════
+     ANIMATIONS
+  ════════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ════════════════════════════════════════════
+     RESPONSIVE
+  ════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .flagship-grid { grid-template-columns: 1fr; gap: 24px; }
+    .benefits-grid, .benefits-grid-2 { grid-template-columns: 1fr 1fr; }
+    .other-layout { grid-template-columns: 1fr; gap: 32px; }
+    .other-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 72px; left: 0; right: 0;
+      background: rgba(11, 29, 58, 0.97); backdrop-filter: blur(20px);
+      padding: 24px 20px; gap: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-toggle { display: flex; }
+    .page-hero { padding: 130px 20px 60px; }
+    .process-section { padding: 0 20px 60px; }
+    .flagship-section, .benefits-section, .other-section { padding-left: 20px; padding-right: 20px; }
+    .flagship-card { padding: 32px 26px 30px; }
+    .benefits-grid, .benefits-grid-2 { grid-template-columns: 1fr; }
+    .other-grid { grid-template-columns: 1fr; gap: 12px; }
+    .accordion-header { padding: 16px 20px; }
+    .accordion-content { padding: 0 20px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-section { padding: 80px 20px; }
+    .footer { padding: 48px 20px 32px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .newsletter-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VoltForce">
+    <span>VoltForce</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#frontiers">Specialisms</a>
+    <a href="resources.html">Resources</a>
+    <a href="engagement.html" class="active">Engagement</a>
+    <a href="https://app.loxo.co/volt-force-com" target="_blank" class="nav-cta">Careers</a>
+  </div>
+  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">How We Work</div>
+    <h1 class="page-hero-headline">Your Vision, Our Mission</h1>
+    <p class="page-hero-text">VoltForce offers a range of partnership options built for different stages of growth — from single high-impact hires to full-scale team buildouts.</p>
+    <p class="page-hero-subtext">Each model is transparent, performance-based, and designed to deliver quality without compromise.</p>
+    <p class="page-hero-prompt">Here's what you can expect:</p>
+  </div>
+</section>
+
+
+<!-- PROCESS STEPS -->
+<div class="process-section">
+  <div class="accordion-item reveal">
+    <div class="accordion-header">
+      <span class="accordion-title">01: Intake Call &amp; Strategy Session</span>
+      <div class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">We start by understanding your company, culture, technical requirements, and hiring urgency. This isn't a form fill — it's a deep-dive strategy session where we align on exactly who you need and why, so every candidate we present is on target from day one.</div>
+    </div>
+  </div>
+  <div class="accordion-item reveal">
+    <div class="accordion-header">
+      <span class="accordion-title">02: Market Intel &amp; Search Launch</span>
+      <div class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">Before we reach out to a single candidate, we map the talent landscape — who's available, where they sit, what competitors are paying, and what will make your opportunity compelling. Then we launch a targeted, proactive search across our network of millions.</div>
+    </div>
+  </div>
+  <div class="accordion-item reveal">
+    <div class="accordion-header">
+      <span class="accordion-title">03: Candidate Vetting &amp; Shortlisting</span>
+      <div class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">Every candidate goes through a thorough screening process — technical fit, cultural alignment, motivation, and compensation expectations. You only see candidates we'd stake our reputation on. No resume dumps, no filler.</div>
+    </div>
+  </div>
+  <div class="accordion-item reveal">
+    <div class="accordion-header">
+      <span class="accordion-title">04: Interview Scheduling &amp; Feedback</span>
+      <div class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">We handle all coordination — scheduling interviews, prepping candidates, and collecting structured feedback after every round. Your team focuses on evaluating talent, not chasing calendars. Seamless Calendly integration for engaged clients when available.*</div>
+    </div>
+  </div>
+  <div class="accordion-item reveal">
+    <div class="accordion-header">
+      <span class="accordion-title">05: Offer Support &amp; Negotiation Guidance</span>
+      <div class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">When you find the right person, we help you close them. That means market-informed offer structuring, candidate expectation management, and navigating counteroffers — so you don't lose your top pick at the finish line.</div>
+    </div>
+  </div>
+  <div class="accordion-item reveal">
+    <div class="accordion-header">
+      <span class="accordion-title">06: Post-Placement Follow-up &amp; Care</span>
+      <div class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">Our job doesn't end at the signed offer letter. We check in with both you and the candidate during onboarding to ensure a smooth transition and long-term fit. Your success is our success — and our retention rates prove it.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DIVIDER -->
+<div class="section-divider"><hr class="divider-line"></div>
+
+
+<!-- FLAGSHIP MODELS -->
+<div class="flagship-section">
+  <div class="section-eyebrow reveal">Engaged Service Models</div>
+  <div class="teal-rule reveal"></div>
+  <h2 class="section-headline reveal">Engaged Service Models</h2>
+  <p class="section-sub reveal">Our flagship models providing benefits exclusive to VoltForce at up to 1/3 the cost of most agencies. Each model delivers the same depth of expertise, the same network, and the same commitment to results.</p>
+  <p class="section-sub-highlight reveal">*Compare to 25–30% of Total Compensation at other agencies</p>
+
+  <div class="flagship-grid">
+    <!-- RETAINED SEARCH -->
+    <div class="flagship-card card-retained reveal">
+      <div class="card-badge badge-recommended">Recommended</div>
+      <div class="card-type">Retained Search</div>
+      <div class="card-title">Priority &amp; Committed</div>
+      <p class="card-desc">A dedicated, exclusive search for critical hires. You commit upfront; we prioritize your roles and work with full focus until you hire. The fastest path to your next key team member.</p>
+      <ul class="feat-list">
+        <li><span class="feat-check">✓</span><span>Dedicated priority focus on your search</span></li>
+        <li><span class="feat-check">✓</span><span>Candidate exclusivity — sourced for you only</span></li>
+        <li><span class="feat-check">✓</span><span>Real-time Client Portal access</span></li>
+        <li><span class="feat-check">✓</span><span>Weekly pipeline reviews &amp; updates</span></li>
+        <li><span class="feat-check">✓</span><span>Volume discounts for multiple roles</span></li>
+        <li><span class="feat-check">✓</span><span>Faster time-to-hire than contingent</span></li>
+        <li><span class="feat-check">✓</span><span>We don't stop until the role is filled</span></li>
+      </ul>
+      <div class="pricing-block">
+        <div class="pricing-main">15–20% total fee (based on salary only)</div>
+        <div class="pricing-detail">
+          <span>$5,000–$7,500 engagement fee per role, credited toward the final fee</span>
+          <span>Discounts and incentives based on volume of roles engaged</span>
+        </div>
+        <div class="pricing-compare">*Compare to 25–30% of Total Comp at other agencies</div>
+      </div>
+    </div>
+
+    <!-- TALENT PARTNER -->
+    <div class="flagship-card card-talent reveal">
+      <div class="card-badge badge-flagship">Most Comprehensive</div>
+      <div class="card-type">Talent Partner</div>
+      <div class="card-title">Embedded &amp; Ongoing</div>
+      <p class="card-desc"><strong>Our most comprehensive partnership.</strong> A dedicated recruiter embedded in your team on a quarterly basis — not just filling roles, but running your entire recruitment operation so your leadership team can focus on building the company.</p>
+      <p class="card-desc">Your hiring managers stop spending 10+ hours a week screening resumes, coordinating interviews, and chasing candidates. We handle all of it — sourcing, screening inbound applicants, scheduling, pipeline management, offer negotiation, and closing.</p>
+      <ul class="feat-list">
+        <li><span class="feat-check">✓</span><span>Everything in Retained, plus:</span></li>
+        <li><span class="feat-check">✓</span><span>Manages ALL inbound applicants at no extra fee</span></li>
+        <li><span class="feat-check">✓</span><span>Fraction of the cost and overhead of a full-time internal recruiter</span></li>
+        <li><span class="feat-check">✓</span><span>Weekly hiring manager syncs</span></li>
+        <li><span class="feat-check">✓</span><span>Quarterly talent market intelligence</span></li>
+        <li><span class="feat-check">✓</span><span>Full offer negotiation &amp; closing support</span></li>
+        <li><span class="feat-check">✓</span><span>Dedicated recruiter who knows your culture</span></li>
+      </ul>
+      <div class="tp-pricing-how">
+        <div class="tp-pricing-how-title">How Pricing Works</div>
+        <p>A quarterly retainer covers your dedicated recruitment capacity and all operational support — sourcing, screening, coordination, and pipeline management across your open roles.</p>
+        <p>When we source and place a candidate from our network, a <strong>reduced placement fee</strong> applies — significantly below industry standard.</p>
+        <p><span class="tp-highlight">The part that changes the math:</span> Candidates that come through <strong>your</strong> channels — job boards, referrals, inbound applications — we screen, shortlist, and manage at <strong>no additional placement fee</strong>. The retainer covers it.</p>
+        <p>The stronger your employer brand grows, the more value you extract from the partnership.</p>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing-main">Quarterly retainer · Reduced placement fees on sourced hires · $0 on inbound</div>
+        <div class="pricing-detail">
+          <span>Annual commitments available with additional savings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- EXCLUSIVE ENGAGED BENEFITS -->
+<div class="benefits-section">
+  <div class="benefits-header">
+    <h2 class="benefits-headline reveal">Exclusive Engaged Benefits</h2>
+    <p class="benefits-sub reveal">Available with Retained Search and Talent Partner engagements — the tools and transparency that set VoltForce apart.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal reveal-delay-1">
+      <div class="benefit-icon">🔍</div>
+      <div class="benefit-title">Transparency &amp; Control</div>
+      <p class="benefit-text">Gain full, unfiltered insights into your search via our Client Portal. No fake stats, no vanity reports, no wondering if the search was thorough. Just complete visibility and peace of mind that every stone has been turned.</p>
+    </div>
+    <div class="benefit-card reveal reveal-delay-2">
+      <div class="benefit-icon">🛡️</div>
+      <div class="benefit-title">Candidate Exclusivity</div>
+      <p class="benefit-text">Candidates sourced for your role aren't recycled or shopped to competitors. You see them first, giving you a crucial edge in competitive markets where top talent moves fast.</p>
+    </div>
+    <div class="benefit-card reveal reveal-delay-3">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-title">Speed &amp; Priority</div>
+      <p class="benefit-text">First candidate slates delivered in 1–1.5 weeks. Your search gets dedicated focus from day one — no queue, no competing priorities. We move 1–2 weeks faster than traditional recruiters.</p>
+    </div>
+  </div>
+  <div class="benefits-grid-2">
+    <div class="benefit-card reveal reveal-delay-1">
+      <div class="benefit-icon">📋</div>
+      <div class="benefit-title">JD Refinement &amp; Posting</div>
+      <p class="benefit-text">We fine-tune your job descriptions and market positioning to attract the right talent from the start. Fewer mismatches, stronger applicants, and a smoother process.</p>
+    </div>
+    <div class="benefit-card reveal reveal-delay-2">
+      <div class="benefit-icon">📅</div>
+      <div class="benefit-title">Scheduling Integration</div>
+      <p class="benefit-text">Skip the endless back-and-forth. Our Calendly integration makes coordinating interviews seamless — so you move faster and keep candidates engaged throughout the process.</p>
+    </div>
+    <div class="benefit-card reveal reveal-delay-3">
+      <div class="benefit-icon">🎯</div>
+      <div class="benefit-title">Strategy Sessions &amp; Reviews</div>
+      <p class="benefit-text">Regular check-ins and real-time pipeline reviews ensure the search stays aligned to your needs. If priorities shift or the market changes, we adapt instantly — keeping momentum strong.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- DIVIDER -->
+<div class="section-divider"><hr class="divider-line"></div>
+
+
+<!-- OTHER SERVICE MODELS -->
+<div class="other-section">
+  <div class="other-layout">
+    <div class="other-header">
+      <h2 class="other-headline reveal">Other Service Models</h2>
+      <p class="other-sub reveal">We get it. Not every business fits neatly into defined boxes. While our Engaged Models are our most popular options, we're flexible — that's what makes us different.<br><br>Have a different way you want to partner? Let's talk.<br><br>Our goal is to support you in a way that works for you.</p>
+    </div>
+    <div class="other-grid">
+      <div class="other-card reveal reveal-delay-1">
+        <div class="other-card-title">Contingent</div>
+        <p class="other-card-text">Purely success-based model requiring nothing upfront. Pay only on a successful hire. Best for single roles or first-time engagements.</p>
+      </div>
+      <div class="other-card reveal reveal-delay-2">
+        <div class="other-card-title">Flat-Rate</div>
+        <p class="other-card-text">Looking to have your budget be easily predictable and simple? Ask us about engaging on a flat-rate model!</p>
+      </div>
+      <div class="other-card reveal reveal-delay-1">
+        <div class="other-card-title">Equity Subsidized</div>
+        <p class="other-card-text">While we pride ourselves on having extremely competitive pricing, let's chat if equity could help bring down the cash cost of recruiting.</p>
+      </div>
+      <div class="other-card reveal reveal-delay-2">
+        <div class="other-card-title">Let's Get Creative!</div>
+        <p class="other-card-text">Got another method, idea, or combination on how we can partner together? We're all ears! Let's have a chat and see how we can help elevate your hiring.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DIVIDER -->
+<div class="section-divider"><hr class="divider-line"></div>
+
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-headline reveal">Contact Us</h2>
+    <p class="contact-sub reveal">Ready to build your team? Tell us about what you're looking for and we'll be in touch within 24 hours.</p>
+
+    <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First name <span class="required">*</span></label>
+          <input type="text" name="first_name" class="form-input" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name <span class="required">*</span></label>
+          <input type="text" name="last_name" class="form-input" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email <span class="required">*</span></label>
+          <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea name="message" class="form-textarea" placeholder="Tell us about the roles you're looking to fill, your timeline, and anything else that would be helpful..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-col-title">Menu</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#frontiers">Specialisms</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="engagement.html">Engagement</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Social</div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/company/volt-forcellc/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://app.loxo.co/volt-force-com" target="_blank">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="newsletter-title">Stay Up to Date With Our Newsletter</div>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Newsletter signup will be connected to your email provider.');">
+        <input type="email" class="newsletter-input" placeholder="Email address" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 VoltForce LLC. All rights reserved.</div>
+</footer>
+
+
+<script>
+  // Accordions
+  document.querySelectorAll('.accordion-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var item = this.parentElement;
+      var wasActive = item.classList.contains('active');
+      document.querySelectorAll('.accordion-item').forEach(function(el) { el.classList.remove('active'); });
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoltForce | Technical Recruitment for Innovative Startups</title>
+<meta name="description" content="VoltForce is a boutique technical recruitment firm specializing in cleantech, deeptech, and advanced manufacturing. From advanced materials to electrification — we help you find the people who shape the future.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0B1D3A;
+    --navy-deep: #081628;
+    --navy-mid: #132B4F;
+    --navy-light: #1A3A6B;
+    --navy-surface: #0F2440;
+    --teal: #2EC4B6;
+    --teal-dim: rgba(46, 196, 182, 0.12);
+    --teal-glow: rgba(46, 196, 182, 0.25);
+    --gold: #D4A853;
+    --gold-dim: rgba(212, 168, 83, 0.10);
+    --white: #FFFFFF;
+    --text-bright: rgba(255, 255, 255, 0.95);
+    --text-main: rgba(255, 255, 255, 0.78);
+    --text-muted: rgba(255, 255, 255, 0.50);
+    --text-dim: rgba(255, 255, 255, 0.35);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-teal: rgba(46, 196, 182, 0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ════════════════════════════════════════════
+     NAV
+  ════════════════════════════════════════════ */
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11, 29, 58, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 0.3s ease;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .nav-logo img {
+    height: 44px;
+    width: auto;
+  }
+
+  .nav-logo span {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-bright);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--teal);
+  }
+
+  .nav-cta {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--white) !important;
+    background: var(--teal);
+    padding: 9px 22px;
+    border-radius: 6px;
+    transition: background 0.25s ease, transform 0.25s ease !important;
+  }
+
+  .nav-cta:hover {
+    background: #26A89C;
+    transform: translateY(-1px);
+  }
+
+  /* Mobile nav */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-bright);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+
+  /* ════════════════════════════════════════════
+     HERO
+  ════════════════════════════════════════════ */
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 32px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(46, 196, 182, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(46, 196, 182, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 20%, rgba(212, 168, 83, 0.03) 0%, transparent 60%),
+      var(--navy);
+  }
+
+  /* Animated grid lines */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(46, 196, 182, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46, 196, 182, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    animation: gridPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes gridPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Floating particles */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 6s ease-in-out infinite;
+  }
+
+  .particle:nth-child(1) { left: 15%; top: 30%; animation-delay: 0s; animation-duration: 7s; }
+  .particle:nth-child(2) { left: 25%; top: 60%; animation-delay: 1.2s; animation-duration: 5.5s; }
+  .particle:nth-child(3) { left: 45%; top: 20%; animation-delay: 2.4s; animation-duration: 6.5s; }
+  .particle:nth-child(4) { left: 65%; top: 70%; animation-delay: 0.8s; animation-duration: 8s; }
+  .particle:nth-child(5) { left: 80%; top: 35%; animation-delay: 3s; animation-duration: 6s; }
+  .particle:nth-child(6) { left: 35%; top: 80%; animation-delay: 1.8s; animation-duration: 7.5s; }
+  .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 4s; animation-duration: 5s; }
+  .particle:nth-child(8) { left: 10%; top: 50%; animation-delay: 2s; animation-duration: 6.8s; }
+  .particle:nth-child(9) { left: 55%; top: 40%; animation-delay: 3.5s; animation-duration: 7.2s; }
+  .particle:nth-child(10) { left: 90%; top: 60%; animation-delay: 0.5s; animation-duration: 5.8s; }
+
+  @keyframes particleFloat {
+    0% { opacity: 0; transform: translateY(20px) scale(0.5); }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { opacity: 0; transform: translateY(-40px) scale(1.2); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6.5vw, 76px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text-bright);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeUp 0.7s ease-out 0.2s both;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s ease-out 0.4s both;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 1.5px solid var(--text-muted);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-bright);
+    letter-spacing: 0.5px;
+    transition: all 0.35s ease;
+    animation: fadeUp 0.7s ease-out 0.6s both;
+  }
+
+  .hero-cta:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(46, 196, 182, 0.25);
+  }
+
+
+  /* ════════════════════════════════════════════
+     WHY VOLTFORCE
+  ════════════════════════════════════════════ */
+
+  .why-section {
+    padding: 120px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .why-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 600;
+    color: var(--text-bright);
+    font-style: italic;
+    opacity: 0.15;
+    margin-bottom: 20px;
+  }
+
+  .why-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 64px;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .why-card {
+    background: var(--navy-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 32px 24px;
+    text-align: left;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .why-card:hover {
+    border-color: var(--border-teal);
+    transform: translateY(-3px);
+  }
+
+  .why-card-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--teal-dim);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 18px;
+  }
+
+  .why-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 8px;
+  }
+
+  .why-card-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  .why-cta {
+    display: inline-block;
+    margin-top: 48px;
+    padding: 14px 36px;
+    background: var(--teal);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .why-cta:hover {
+    background: #26A89C;
+    transform: translateY(-2px);
+  }
+
+
+  /* ════════════════════════════════════════════
+     TESTIMONIALS
+  ════════════════════════════════════════════ */
+
+  .testimonials-section {
+    padding: 100px 32px;
+    background:
+      linear-gradient(160deg, rgba(46, 196, 182, 0.04) 0%, transparent 40%),
+      linear-gradient(200deg, rgba(46, 196, 182, 0.03) 0%, transparent 50%),
+      var(--navy-deep);
+  }
+
+  .testimonials-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .testimonials-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 56px;
+  }
+
+  .testimonial-carousel {
+    position: relative;
+    min-height: 260px;
+  }
+
+  .testimonial-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .testimonial-slide.active {
+    opacity: 1;
+  }
+
+  .testimonial-quote-mark {
+    font-size: 48px;
+    color: var(--teal);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .testimonial-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-main);
+    font-style: italic;
+    margin-bottom: 24px;
+    max-width: 650px;
+  }
+
+  .testimonial-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.5px;
+  }
+
+  .testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .testimonial-nav button {
+    background: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .testimonial-nav button:hover {
+    border-color: var(--teal);
+    background: rgba(46, 196, 182, 0.1);
+  }
+
+  .testimonial-nav button svg {
+    width: 16px;
+    height: 16px;
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .testimonial-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .testimonial-dot.active {
+    background: var(--teal);
+    transform: scale(1.2);
+  }
+
+
+  /* ════════════════════════════════════════════
+     FRONTIERS
+  ════════════════════════════════════════════ */
+
+  .frontiers-section {
+    padding: 120px 32px 100px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .frontiers-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 700;
+    color: var(--text-bright);
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .frontiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .frontier-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 36px 30px;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .frontier-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .frontier-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(8, 22, 40, 0.92) 0%, rgba(8, 22, 40, 0.4) 50%, rgba(8, 22, 40, 0.15) 100%);
+    z-index: 1;
+  }
+
+  .frontier-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .frontier-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .frontier-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .frontier-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .frontier-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+
+  /* ════════════════════════════════════════════
+     FOUNDER
+  ════════════════════════════════════════════ */
+
+  .founder-section {
+    padding: 100px 32px 120px;
+  }
+
+  .founder-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--navy-mid);
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+
+  .founder-text {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .founder-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 4px;
+  }
+
+  .founder-role {
+    font-size: 15px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+
+  .founder-quote {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .founder-quote p {
+    margin-bottom: 16px;
+  }
+
+  .founder-quote p:last-child {
+    margin-bottom: 0;
+  }
+
+  .founder-quote strong {
+    color: var(--text-bright);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .founder-image {
+    position: relative;
+    background: var(--navy-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Circuit pattern behind headshot */
+  .founder-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 40%, rgba(46, 196, 182, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(46, 196, 182, 0.05) 0%, transparent 40%);
+  }
+
+  .founder-image img {
+    position: relative;
+    z-index: 1;
+    width: 320px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  }
+
+
+  /* ════════════════════════════════════════════
+     FOOTER
+  ════════════════════════════════════════════ */
+
+  .footer {
+    background: var(--navy-deep);
+    border-top: 1px solid var(--border-subtle);
+    padding: 64px 40px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 48px;
+  }
+
+  .footer-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    font-size: 15px;
+    color: var(--text-dim);
+    transition: color 0.25s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--teal);
+  }
+
+  .newsletter-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 16px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-bright);
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--text-dim);
+  }
+
+  .newsletter-input:focus {
+    border-color: var(--teal);
+  }
+
+  .newsletter-btn {
+    padding: 12px 24px;
+    background: var(--teal);
+    color: var(--navy);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .newsletter-btn:hover {
+    background: #26A89C;
+  }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+
+  /* ════════════════════════════════════════════
+     ANIMATIONS
+  ════════════════════════════════════════════ */
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Intersection observer animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+
+  /* ════════════════════════════════════════════
+     RESPONSIVE
+  ════════════════════════════════════════════ */
+
+  @media (max-width: 1024px) {
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .frontiers-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+    .frontier-card { min-height: 380px; }
+    .founder-card { grid-template-columns: 1fr; }
+    .founder-image { min-height: 400px; order: -1; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(11, 29, 58, 0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px 20px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-toggle { display: flex; }
+
+    .hero { min-height: 90vh; padding: 100px 20px 60px; }
+    .why-section { padding: 80px 20px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .testimonials-section { padding: 80px 20px; }
+    .testimonial-text { font-size: 16px; }
+    .frontiers-section { padding: 80px 20px; }
+    .founder-section { padding: 60px 20px 80px; }
+    .founder-text { padding: 36px 24px; }
+    .founder-name { font-size: 26px; }
+    .founder-image img { width: 240px; height: 270px; }
+    .footer { padding: 48px 20px 32px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .newsletter-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VoltForce">
+    <span>VoltForce</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="#why">Why Us</a>
+    <a href="#frontiers">Specialisms</a>
+    <a href="resources.html">Resources</a>
+    <a href="engagement.html">Engagement</a>
+    <a href="https://app.loxo.co/volt-force-com" target="_blank" class="nav-cta">Careers</a>
+  </div>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Recruitment, Rewired</h1>
+    <p class="hero-sub">From advanced materials to electrification — we help you find the people who shape the future</p>
+    <a href="engagement.html#contact" class="hero-cta">Get in Touch</a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     WHY VOLTFORCE
+════════════════════════════════════════════ -->
+<section class="why-section" id="why">
+  <h2 class="why-headline reveal">Why VoltForce</h2>
+  <p class="why-text reveal reveal-delay-1">We were built to challenge the broken norms of recruitment. In a space filled with inflated fees, vague processes, and short-term thinking, we chose a different path. One grounded in transparency, quality, and real human connection.</p>
+
+  <div class="why-grid">
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-card-icon">💬</div>
+      <div class="why-card-title">Clear, Honest Communication</div>
+      <div class="why-card-text">No black boxes, no ghosting. You'll always know where your search stands and what's coming next.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-card-icon">⭐</div>
+      <div class="why-card-title">High-Caliber Candidates</div>
+      <div class="why-card-text">We proactively source passive talent — people who aren't applying to job boards but are the perfect fit for your team.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <div class="why-card-icon">🤝</div>
+      <div class="why-card-title">People-First Approach</div>
+      <div class="why-card-text">Candidates and clients are people, not transactions. Every interaction reflects that belief.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-card-icon">💰</div>
+      <div class="why-card-title">Transparent, Fair Pricing</div>
+      <div class="why-card-text">Fees based on salary only — not total compensation. Up to 1/3 the cost of most agencies. No surprises.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-card-icon">⚡</div>
+      <div class="why-card-title">Speed with Substance</div>
+      <div class="why-card-text">First candidates in 1–1.5 weeks. We move fast without cutting corners on quality or cultural fit.</div>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <div class="why-card-icon">🎯</div>
+      <div class="why-card-title">Long-Term Results</div>
+      <div class="why-card-text">100% client retention. We don't stop until the role is filled — and we stay engaged long after the offer letter is signed.</div>
+    </div>
+  </div>
+
+  <a href="engagement.html#contact" class="why-cta reveal reveal-delay-4">Get In Touch</a>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <h2 class="testimonials-headline reveal">Testimonials</h2>
+
+    <div class="testimonial-carousel" id="testimonialCarousel">
+      <div class="testimonial-slide active">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">We have worked with Matt to fill several positions. We are impressed with Matt's ability to define the job function, source and present talented candidates within the defined scope, and communicate with us as well as the candidates throughout the process. Indeed we recommend and appreciate Matt's services!</p>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Matt is an amazing recruiter, excellent at spotting skillful candidates, offering relevant and exciting job opportunities, and keeping the contact professional and productive. I'm very happy to work with Matt.</p>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">Matt is a very responsive and self motivated individual. He really takes it on himself to see through each candidate goes through proper vetting before recommending them for placement. Most important is to make sure the candidate's goals are aligned with the company's. Working with him has been a great experience.</p>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">I have the pleasure of working with Matt for the past year and have been nothing less than impressed. Matt is a highly collaborative business partner and is focused on being solution oriented, no matter how difficult the situation! I know that I can rely on Matt to always deliver, in a creative and positive way!</p>
+      </div>
+    </div>
+
+    <div class="testimonial-nav">
+      <button onclick="changeSlide(-1)" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button onclick="changeSlide(1)" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
+
+    <div class="testimonial-dots" id="testimonialDots">
+      <div class="testimonial-dot active" onclick="goToSlide(0)"></div>
+      <div class="testimonial-dot" onclick="goToSlide(1)"></div>
+      <div class="testimonial-dot" onclick="goToSlide(2)"></div>
+      <div class="testimonial-dot" onclick="goToSlide(3)"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     THE FRONTIERS WE POWER
+════════════════════════════════════════════ -->
+<section class="frontiers-section" id="frontiers">
+  <h2 class="frontiers-headline reveal">The Frontiers We Power</h2>
+
+  <div class="frontiers-grid">
+    <div class="frontier-card reveal reveal-delay-1">
+      <img src="images/electrification.jpg" alt="Battery manufacturing and energy storage" loading="lazy">
+      <div class="frontier-content">
+        <h3 class="frontier-title">Electrification &amp; Cleantech</h3>
+        <p class="frontier-text">From batteries and energy storage to e-mobility, grid innovation, and carbon capture — we partner with the companies electrifying everything. VoltForce supports the pioneers building a cleaner, more resilient energy ecosystem.</p>
+      </div>
+    </div>
+
+    <div class="frontier-card reveal reveal-delay-2">
+      <img src="images/materials.jpg" alt="Critical and advanced materials" loading="lazy">
+      <div class="frontier-content">
+        <h3 class="frontier-title">Critical &amp; Advanced Materials</h3>
+        <p class="frontier-text">From lithium and rare earths to graphene and carbon nanotubes, advanced materials are reshaping North American infrastructure and industry. We help the companies engineering the building blocks of the future find the people who can make it real.</p>
+      </div>
+    </div>
+
+    <div class="frontier-card reveal reveal-delay-3">
+      <img src="images/industry40.jpg" alt="Advanced manufacturing and automation" loading="lazy">
+      <div class="frontier-content">
+        <h3 class="frontier-title">Industry 4.0</h3>
+        <p class="frontier-text">Startups and hyperscalers alike are reinventing how things are made — from modular pilot lines to fully automated, AI-optimized factories. VoltForce connects them with the operators, engineers, and leaders driving this new industrial revolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     MEET THE FOUNDER
+════════════════════════════════════════════ -->
+<section class="founder-section">
+  <div class="founder-card reveal">
+    <div class="founder-text">
+      <div class="founder-label">Meet the Founder</div>
+      <h2 class="founder-name">Matt Anders</h2>
+      <div class="founder-role">Founder, VoltForce</div>
+      <div class="founder-quote">
+        <p>"After nearly a decade recruiting across cleantech and deeptech at some of the most well-known firms in the space, one thing was obvious: The recruitment industry is broken.</p>
+        <p>Candidates feel like numbers. Clients get hit with inflated fees and vague promises. And even internal recruiters burn out trying to hit metrics that don't align with quality.</p>
+        <p>I knew there had to be a better way.</p>
+        <p><strong>VoltForce was my answer.</strong> A high-integrity, high-impact recruitment firm that treats people like people and pricing like a partnership.</p>
+        <p>We're here to help build the future — and we're damn good at it."</p>
+      </div>
+    </div>
+    <div class="founder-image">
+      <img src="images/matt-headshot.jpg" alt="Matt Anders - Founder, VoltForce">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-col-title">Menu</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#frontiers">Specialisms</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="engagement.html">Engagement</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Social</div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/company/volt-forcellc/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://app.loxo.co/volt-force-com" target="_blank">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="newsletter-title">Stay Up to Date With Our Newsletter</div>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Newsletter signup will be connected to your email provider.');">
+        <input type="email" class="newsletter-input" placeholder="Email address" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 VoltForce LLC. All rights reserved.
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+<script>
+  // Testimonial carousel
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.testimonial-dot');
+
+  function goToSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = n;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  function changeSlide(dir) {
+    let next = (currentSlide + dir + slides.length) % slides.length;
+    goToSlide(next);
+  }
+
+  // Auto-advance every 6 seconds
+  setInterval(function() { changeSlide(1); }, 6000);
+
+  // Scroll reveal (Intersection Observer)
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+</script>
+
+
+</body>
+</html>

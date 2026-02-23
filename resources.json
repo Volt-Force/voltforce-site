@@ -1,0 +1,37 @@
+[
+  {
+    "title": "The \"Grit Era\" of Batteries",
+    "description": "Battery Industry Enters 'Grit Era' as Execution Trumps Hype in Push for Real Results. Manufacturing talent shortage constrains battery sector more than technology as industry shifts toward practical execution over research.",
+    "image": "images/resource-grit-era.webp",
+    "url": "https://www.batterytechonline.com/industry-outlook/battery-industry-enters-grit-era-as-manufacturing-execution-trumps-hype-in-push-for-real-results",
+    "tag": "Industry Outlook"
+  },
+  {
+    "title": "The Solid-State Dream",
+    "description": "A battery industry recruiter considers the state of solid-state and its potential impact on workforce readiness.",
+    "image": "images/resource-solid-state.webp",
+    "url": "https://www.batterytechonline.com/design-manufacturing/is-the-solid-state-battery-dream-finally-becoming-a-reality-",
+    "tag": "Design & Manufacturing"
+  },
+  {
+    "title": "US Battery Manufacturing Playbook",
+    "description": "Battery industry recruitment and workforce advisor explains why execution — not new ideas — is key to scaling US battery manufacturing.",
+    "image": "images/resource-playbook.webp",
+    "url": "https://www.batterytechonline.com/battery-manufacturing/us-battery-manufacturing-has-a-playbook-why-aren-t-we-using-it-",
+    "tag": "Battery Manufacturing"
+  },
+  {
+    "title": "Battery Talent Census",
+    "description": "The most comprehensive, data-driven analysis to date, drawing insights from over 1,000 professionals.",
+    "image": "images/resource-census.png",
+    "url": "https://volta.foundation/battery-workforce/battery-talent-census",
+    "tag": "Research Report"
+  },
+  {
+    "title": "Battery Workforce: The Industry's Biggest Bottleneck",
+    "description": "The industry is at a crossroads. With new technology, AI, and an ever-changing political landscape, what does the future hold for the battery industry?",
+    "image": "images/resource-bottleneck.webp",
+    "url": "https://www.batterytechonline.com/battery-manufacturing/battery-workforce-experts-talent-pipeline-is-the-industry-s-biggest-bottleneck",
+    "tag": "Battery Manufacturing"
+  }
+]
