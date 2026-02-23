@@ -94,16 +94,7 @@
   .resources-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  /* Featured card (first item) spans full width */
-  .resource-card.featured {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    min-height: 360px;
+    gap: 22px;
   }
 
   .resource-card {
@@ -124,14 +115,9 @@
 
   .resource-image {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
     position: relative;
-  }
-
-  .resource-card.featured .resource-image {
-    aspect-ratio: unset;
-    height: 100%;
   }
 
   .resource-image img {
@@ -146,15 +132,10 @@
   }
 
   .resource-body {
-    padding: 28px 26px;
+    padding: 22px 22px;
     display: flex;
     flex-direction: column;
     flex: 1;
-  }
-
-  .resource-card.featured .resource-body {
-    padding: 40px 36px;
-    justify-content: center;
   }
 
   .resource-tag {
@@ -176,22 +157,12 @@
     margin-bottom: 12px;
   }
 
-  .resource-card.featured .resource-title {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
   .resource-desc {
     font-size: 14px;
     line-height: 1.7;
     color: var(--text-muted);
     margin-bottom: 20px;
     flex: 1;
-  }
-
-  .resource-card.featured .resource-desc {
-    font-size: 15px;
-    margin-bottom: 28px;
   }
 
   .resource-link {
@@ -311,7 +282,6 @@
   ════════════════════════════════════════════ */
   @media (max-width: 1024px) {
     .resources-grid { grid-template-columns: 1fr 1fr; }
-    .resource-card.featured { grid-column: 1 / -1; }
     .footer-inner { grid-template-columns: 1fr 1fr; }
   }
 
@@ -329,10 +299,6 @@
     .page-hero { padding: 130px 20px 60px; }
     .resources-section { padding: 0 20px 80px; }
     .resources-grid { grid-template-columns: 1fr; gap: 20px; }
-    .resource-card.featured { grid-template-columns: 1fr; }
-    .resource-card.featured .resource-image { aspect-ratio: 16 / 9; height: auto; }
-    .resource-card.featured .resource-body { padding: 28px 26px; }
-    .resource-card.featured .resource-title { font-size: 22px; }
     .resources-cta { padding: 60px 20px 80px; }
     .footer { padding: 48px 20px 32px; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -436,7 +402,7 @@
         card.href = item.url;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
-        card.className = 'resource-card' + (index === 0 ? ' featured' : '');
+        card.className = 'resource-card';
 
         card.innerHTML =
           '<div class="resource-image">' +
