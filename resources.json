@@ -1,5 +1,12 @@
 [
   {
+        "title": "The Modern Resume Guide",
+        "description": "A practical guide to writing resumes that pass ATS filters, impress recruiters, and reflect the depth of your real experience. Built for the modern job market.",
+        "image": "images/VoltForce_ResumeGuide_Thumbnail.png",
+        "url": "VoltForce_Resume_Guide_7.html",
+        "tag": "Guide"
+  },
+  {
     "title": "The \"Grit Era\" of Batteries",
     "description": "Battery Industry Enters 'Grit Era' as Execution Trumps Hype in Push for Real Results. Manufacturing talent shortage constrains battery sector more than technology as industry shifts toward practical execution over research.",
     "image": "images/resource-grit-era.webp",
