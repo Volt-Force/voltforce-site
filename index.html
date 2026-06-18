@@ -886,6 +886,182 @@
     opacity: 0.5;
   }
 
+  /* ════════════════════════════════════════════
+     FILAMENT SECTION
+  ════════════════════════════════════════════ */
+
+  .filament-section {
+    padding: 120px 32px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .filament-eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .filament-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--text-bright);
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+
+  .filament-headline em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .filament-text {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 56px;
+    font-size: 17px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .filament-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .filament-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .filament-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .filament-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-teal);
+  }
+
+  .filament-card-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+
+  .filament-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .filament-card-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .filament-value-callout {
+    background: var(--navy-deep);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 32px 40px;
+    max-width: 920px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .filament-value-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+
+  .filament-value-setup {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .filament-value-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .filament-value-headline em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .filament-value-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .filament-cta {
+    text-align: center;
+  }
+
+  .filament-cta a {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--teal);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .filament-cta a:hover {
+    background: #26A89C;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .filament-grid { grid-template-columns: 1fr; }
+    .filament-section { padding: 80px 20px; }
+    .filament-value-callout { padding: 28px 24px; }
+  }
+
 </style>
 </head>
 <body>
@@ -903,6 +1079,7 @@
     <a href="index.html" class="active">Home</a>
     <a href="#why">Why Us</a>
     <a href="#frontiers">Specialisms</a>
+    <a href="filament.html">Filament</a>
     <a href="resources.html">Resources</a>
     <a href="engagement.html">Engagement</a>
     <a href="/careers" class="nav-cta">Careers</a>
@@ -1070,6 +1247,49 @@
 
 
 <!-- ════════════════════════════════════════════
+     FILAMENT
+════════════════════════════════════════════ -->
+<section class="filament-section" id="filament">
+  <div class="filament-eyebrow reveal">Introducing Filament</div>
+  <h2 class="filament-headline reveal reveal-delay-1">Recruitment, <em>in full view.</em></h2>
+  <p class="filament-text reveal reveal-delay-2">VoltForce's proprietary recruitment platform. Every search we run operates through it. Every client we work with gets a live, end-to-end view of their pipeline, from day one through placement closing.</p>
+
+  <div class="filament-grid">
+    <div class="filament-card reveal reveal-delay-1">
+      <div class="filament-card-eyebrow">Pillar 01</div>
+      <h3 class="filament-card-title">Hiring Infrastructure</h3>
+      <p class="filament-card-text">For Talent Partner clients, Filament becomes part of your hiring stack. A client-branded careers page, a real-time portal for your team, and an embedded function with the depth of a sector-specialist boutique.</p>
+    </div>
+
+    <div class="filament-card reveal reveal-delay-2">
+      <div class="filament-card-eyebrow">Pillar 02</div>
+      <h3 class="filament-card-title">Transparency + Data</h3>
+      <p class="filament-card-text">Every candidate, every stage, every note, visible the moment it happens. Self-hosted on infrastructure VoltForce owns and operates end-to-end. Your data, yours alone.</p>
+    </div>
+
+    <div class="filament-card reveal reveal-delay-3">
+      <div class="filament-card-eyebrow">Pillar 03</div>
+      <h3 class="filament-card-title">Efficiency + Matchmaking</h3>
+      <p class="filament-card-text">First vetted candidates within 7-10 days. A skill taxonomy tuned to climatech, advanced materials, and Industry 4.0. Career-arc-based matching that gets sharper with every search.</p>
+    </div>
+  </div>
+
+  <div class="filament-value-callout reveal">
+    <div class="filament-value-eyebrow">Added Value with Talent Partner</div>
+    <div class="filament-value-setup">An ATS subscription alone can run upwards of $20,000 per year.</div>
+    <div class="filament-value-headline">Included with <em>Talent Partner.</em></div>
+    <div class="filament-value-sub">On top of the client-branded careers page and reduced per-role overhead. All in one engagement.</div>
+  </div>
+
+  <div class="filament-cta reveal">
+    <a href="filament.html">Learn More About Filament</a>
+  </div>
+</section>
+
+<div class="section-divider"><img src="images/Just_Logo_White_Clean.png" alt=""></div>
+
+
+<!-- ════════════════════════════════════════════
      MEET THE FOUNDER
 ════════════════════════════════════════════ -->
 <section class="founder-section">
@@ -1107,6 +1327,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#why">Why Us</a></li>
         <li><a href="index.html#frontiers">Specialisms</a></li>
+        <li><a href="filament.html">Filament</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="engagement.html">Engagement</a></li>
       </ul>
