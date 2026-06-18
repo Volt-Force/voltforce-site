@@ -1,2 +1,8 @@
 /brochure  /images/VoltForce%20Brochure.pdf  200
 /resume-guide  /VoltForce_Resume_Guide_7.html  200
+
+# Careers — proxy to Filament (NAS-served) so users see volt-force.com/careers
+/careers       https://app.volt-force.com/careers          200
+/careers/*     https://app.volt-force.com/careers/:splat   200
+/sitemap.xml   https://app.volt-force.com/sitemap.xml      200
+/robots.txt    https://app.volt-force.com/robots.txt       200
