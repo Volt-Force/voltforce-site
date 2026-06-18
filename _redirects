@@ -6,3 +6,13 @@
 /careers/*     https://app.volt-force.com/careers/:splat   200
 /sitemap.xml   https://app.volt-force.com/sitemap.xml      200
 /robots.txt    https://app.volt-force.com/robots.txt       200
+
+# Client portal — proxy so clients see volt-force.com/portal/CLIENTNAME
+/portal        https://app.volt-force.com/portal           200
+/portal/*      https://app.volt-force.com/portal/:splat    200
+
+# Supporting paths that the React SPA needs (relative URLs from the portal)
+/api/*         https://app.volt-force.com/api/:splat       200
+/assets/*      https://app.volt-force.com/assets/:splat    200
+/uploads/*     https://app.volt-force.com/uploads/:splat   200
+/logos/*       https://app.volt-force.com/logos/:splat     200
