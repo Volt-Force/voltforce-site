@@ -1,11 +1,28 @@
-/brochure  /images/VoltForce%20Brochure.pdf  200
+/brochure  /brochures/VoltForce_Brochure.pdf  200
 /resume-guide  /VoltForce_Resume_Guide_7.html  200
+
+# Clean URLs (drop .html) for SEO — 200 rewrites keep both forms working
+/engagement                 /engagement.html                   200
+/filament                   /filament.html                     200
+/resources                  /resources.html                    200
+/climatech                  /climatech-recruitment.html        200
+/climatech-recruitment      /climatech-recruitment.html        200
+/materials                  /advanced-materials-recruitment.html  200
+/advanced-materials         /advanced-materials-recruitment.html  200
+/advanced-materials-recruitment  /advanced-materials-recruitment.html  200
+/industry-4                 /industry-4-recruitment.html       200
+/industry-4-0               /industry-4-recruitment.html       200
+/industry-4-recruitment     /industry-4-recruitment.html       200
+/why-use-a-recruiter        /why-use-a-recruiter.html          200
 
 # Careers — proxy to Filament (NAS-served) so users see volt-force.com/careers
 /careers       https://app.volt-force.com/careers          200
 /careers/*     https://app.volt-force.com/careers/:splat   200
-/sitemap.xml   https://app.volt-force.com/sitemap.xml      200
-/robots.txt    https://app.volt-force.com/robots.txt       200
+
+# Note: /sitemap.xml and /robots.txt previously proxied to Filament.
+# As of 2026-06-18 they are served directly by Netlify from this repo
+# (marketing-site SEO sitemap is the source of truth; it links to /careers
+# so Filament's jobs are still discoverable via the marketing crawl path).
 
 # Client portal — proxy so clients see volt-force.com/portal/CLIENTNAME
 /portal        https://app.volt-force.com/portal           200
