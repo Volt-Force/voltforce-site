@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#152336"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2ec4c4"/>
+      <stop offset="100%" style="stop-color:#2ec4c4;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Corner marks -->
+  <path d="M30 30 L30 70 M30 30 L70 30" stroke="#2ec4c4" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M770 470 L770 430 M770 470 L730 470" stroke="#2ec4c4" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <!-- Accent line -->
+  <rect x="60" y="160" width="50" height="3" fill="url(#tealGrad)"/>
+  <!-- Label -->
+  <text x="60" y="200" font-family="sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#2ec4c4" text-transform="uppercase">VOLTFORCE INSIGHTS</text>
+  <!-- Title -->
+  <text x="60" y="260" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#f8f8f4">Why Partner with</text>
+  <text x="60" y="315" font-family="Georgia, serif" font-size="42" font-weight="400" font-style="italic" fill="#c8963e">a Recruiter?</text>
+  <!-- Subtitle -->
+  <text x="60" y="370" font-family="sans-serif" font-size="16" fill="#8fa3b8" font-weight="300">Six reasons the right recruitment partner</text>
+  <text x="60" y="395" font-family="sans-serif" font-size="16" fill="#8fa3b8" font-weight="300">accelerates your growth.</text>
+  <!-- Decorative dots -->
+  <circle cx="680" cy="120" r="3" fill="#2ec4c4" opacity="0.2"/>
+  <circle cx="720" cy="180" r="4" fill="#2ec4c4" opacity="0.15"/>
+  <circle cx="650" cy="380" r="3" fill="#c8963e" opacity="0.15"/>
+  <circle cx="710" cy="320" r="5" fill="#2ec4c4" opacity="0.1"/>
+</svg>

@@ -24,7 +24,7 @@
     "title": "The Modern Resume Guide",
     "description": "A practical guide to writing resumes that pass ATS filters, impress recruiters, and reflect the depth of your real experience. Built for the modern job market.",
     "image": "images/resource-resume-guide.png",
-    "url": "https://volta.foundation/battery-report-2025",
+    "url": "/resume-guide",
     "tag": "Guide"
   },
   {
@@ -50,7 +50,7 @@
   },
   {
     "title": "US Battery Manufacturing Playbook",
-    "description": "Battery industry recruitment and workforce advisor explains why execution — not new ideas — is key to scaling US battery manufacturing.",
+    "description": "Battery industry recruitment and workforce advisor explains why execution, not new ideas, is key to scaling US battery manufacturing.",
     "image": "images/resource-playbook.webp",
     "url": "https://www.batterytechonline.com/battery-manufacturing/us-battery-manufacturing-has-a-playbook-why-aren-t-we-using-it-",
     "tag": "Battery Manufacturing"
