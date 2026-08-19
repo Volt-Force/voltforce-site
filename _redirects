@@ -14,6 +14,7 @@
 /industry-4-0               /industry-4-recruitment.html       200
 /industry-4-recruitment     /industry-4-recruitment.html       200
 /why-use-a-recruiter        /why-use-a-recruiter.html          200
+/join-us                    /join-us.html                      200
 
 # Careers — proxy to Filament (NAS-served) so users see volt-force.com/careers
 /careers       https://app.volt-force.com/careers          200
