@@ -106,61 +106,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+  /* ---------- page-specific: Filament ---------- */
+  /* token bridge: alias the page's local names onto the shared palette */
   :root {
-    --navy: #0B1D3A;
-    --navy-deep: #081628;
-    --navy-mid: #132B4F;
+    --text-bright: var(--ink-95);
+    --text-main: var(--ink-72);
+    --text-muted: var(--ink-58);
+    --text-dim: var(--ink-42);
+    --border-subtle: var(--line);
+    --border-teal: var(--line-teal);
     --navy-light: #1A3A6B;
-    --navy-surface: #0F2440;
-    --teal: #2EC4B6;
     --teal-dim: rgba(46, 196, 182, 0.12);
     --teal-glow: rgba(46, 196, 182, 0.25);
-    --gold: #D4A853;
     --gold-dim: rgba(212, 168, 83, 0.10);
-    --white: #FFFFFF;
-    --text-bright: rgba(255, 255, 255, 0.95);
-    --text-main: rgba(255, 255, 255, 0.78);
-    --text-muted: rgba(255, 255, 255, 0.50);
-    --text-dim: rgba(255, 255, 255, 0.35);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-teal: rgba(46, 196, 182, 0.2);
   }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--text-main);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  a { text-decoration: none; color: inherit; }
-
-  /* NAV */
-  .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 0 40px; height: 72px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(11, 29, 58, 0.85);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .nav-logo { display: flex; align-items: center; gap: 14px; }
-  .nav-logo img { height: 44px; width: auto; }
-  .nav-logo span { font-size: 16px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-bright); }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.25s ease; letter-spacing: 0.3px; }
-  .nav-links a:hover, .nav-links a.active { color: var(--teal); }
-  .nav-cta { font-size: 13px !important; font-weight: 600 !important; color: var(--white) !important; background: var(--teal); padding: 9px 22px; border-radius: 6px; transition: background 0.25s ease, transform 0.25s ease !important; }
-  .nav-cta:hover { background: #26A89C; transform: translateY(-1px); }
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .nav-toggle span { width: 24px; height: 2px; background: var(--text-bright); border-radius: 2px; transition: all 0.3s ease; }
 
   /* HERO */
   .filament-hero {
@@ -189,42 +150,30 @@
   }
   .filament-hero-content { position: relative; z-index: 2; max-width: 860px; }
   .filament-hero-eyebrow {
-    font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 13px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.17em; text-transform: uppercase;
+    color: var(--teal); line-height: 1; margin-bottom: 24px;
   }
+  .filament-hero-eyebrow::before, .filament-hero-eyebrow::after { content: ""; width: 30px; height: 1px; opacity: 0.85; }
+  .filament-hero-eyebrow::before { background: linear-gradient(90deg, transparent, var(--teal)); }
+  .filament-hero-eyebrow::after  { background: linear-gradient(90deg, var(--teal), transparent); }
   .filament-hero-headline {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 7vw, 84px);
-    font-weight: 700; color: var(--text-bright);
-    line-height: 1.05; margin-bottom: 24px;
+    font-size: clamp(46px, 7vw, 82px);
+    font-weight: 600; color: var(--white);
+    letter-spacing: -0.026em; line-height: 1.05; margin-bottom: 24px;
   }
   .filament-hero-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
   .filament-hero-sub {
     font-size: clamp(17px, 1.6vw, 20px);
-    color: var(--text-main); max-width: 680px; margin: 0 auto;
+    color: var(--text-main); max-width: 680px; margin: 0 auto; line-height: 1.65;
   }
 
-  /* SECTIONS */
+  /* SECTION WRAPPERS */
   .pillar-section, .portal-section, .value-section, .engage-section, .standalone-section, .contact-section {
     padding: 100px 32px;
     max-width: 1280px;
     margin: 0 auto;
-  }
-  .section-eyebrow {
-    font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--teal); text-align: center; margin-bottom: 20px;
-  }
-  .section-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 700; color: var(--text-bright);
-    text-align: center; margin-bottom: 20px; line-height: 1.15;
-  }
-  .section-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
-  .section-sub {
-    text-align: center;
-    max-width: 760px; margin: 0 auto 56px;
-    font-size: 17px; color: var(--text-main); line-height: 1.7;
   }
   .section-divider {
     display: flex; align-items: center; justify-content: center;
@@ -250,9 +199,9 @@
   }
   .pillar-text-block .pillar-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 44px);
-    font-weight: 700; color: var(--text-bright);
-    line-height: 1.15; margin-bottom: 20px;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600; color: var(--text-bright);
+    letter-spacing: -0.018em; line-height: 1.15; margin-bottom: 20px;
   }
   .pillar-text-block .pillar-title em { font-style: italic; color: var(--gold); font-weight: 500; }
   .pillar-text-block .pillar-body {
@@ -283,7 +232,7 @@
   }
   .pillar-visual-block .stat {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 5vw, 64px);
+    font-size: clamp(40px, 5vw, 60px);
     font-weight: 700; color: var(--gold);
     font-style: italic;
     line-height: 1; margin-bottom: 12px;
@@ -300,11 +249,11 @@
     font-size: 15px; color: var(--text-bright);
   }
   .pillar-visual-block .visual-list li::before {
-    content: '✓'; position: absolute; left: 0; top: 13px;
+    content: '\2713'; position: absolute; left: 0; top: 13px;
     color: var(--teal); font-weight: 700; font-size: 14px;
   }
 
-  /* VALUE CALLOUT - the $20K beat */
+  /* VALUE CALLOUT */
   .value-callout {
     background: var(--navy-deep);
     border-left: 6px solid var(--gold);
@@ -322,9 +271,9 @@
   }
   .value-callout-headline {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(34px, 4.5vw, 52px);
-    font-weight: 700; color: var(--text-bright);
-    line-height: 1.15; margin-bottom: 20px;
+    font-size: clamp(34px, 4.5vw, 50px);
+    font-weight: 600; color: var(--text-bright);
+    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px;
   }
   .value-callout-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
   .value-callout-sub {
@@ -343,7 +292,9 @@
     border-radius: 12px;
     padding: 28px;
     position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
   }
+  .engage-card:hover { transform: translateY(-4px); border-color: var(--border-teal); }
   .engage-card.featured { border-color: var(--gold); }
   .engage-card.featured::before {
     content: 'Includes Filament'; position: absolute;
@@ -360,7 +311,7 @@
   .engage-card-title {
     font-family: 'Playfair Display', serif;
     font-size: 22px; font-weight: 600; color: var(--text-bright);
-    margin-bottom: 12px;
+    letter-spacing: -0.01em; margin-bottom: 12px;
   }
   .engage-card-text {
     font-size: 14px; color: var(--text-muted); line-height: 1.55;
@@ -391,12 +342,12 @@
   .standalone-headline {
     font-family: 'Playfair Display', serif;
     font-size: clamp(26px, 3.5vw, 36px);
-    font-weight: 700; color: var(--text-bright);
-    line-height: 1.2; margin-bottom: 16px;
+    font-weight: 600; color: var(--text-bright);
+    letter-spacing: -0.018em; line-height: 1.2; margin-bottom: 16px;
   }
   .standalone-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
   .standalone-sub {
-    font-size: 16px; color: var(--text-muted); margin-bottom: 28px;
+    font-size: 16px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.7;
   }
   .standalone-cta {
     display: inline-block;
@@ -421,80 +372,23 @@
   .contact-headline {
     font-family: 'Playfair Display', serif;
     font-size: clamp(34px, 4.5vw, 48px);
-    font-weight: 700; color: var(--text-bright);
-    line-height: 1.15; margin-bottom: 24px;
+    font-weight: 600; color: var(--text-bright);
+    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 24px;
   }
   .contact-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
-  .contact-cta {
-    display: inline-block;
-    padding: 16px 36px;
-    background: var(--teal);
-    color: var(--white);
-    font-size: 15px; font-weight: 600; letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 6px;
-    transition: background 0.25s ease, transform 0.25s ease;
-  }
-  .contact-cta:hover { background: #26A89C; transform: translateY(-1px); }
   .contact-email {
     margin-top: 24px;
     font-size: 14px; color: var(--text-muted);
   }
   .contact-email a { color: var(--teal); }
 
-  /* FOOTER */
-  .footer {
-    background: var(--navy-deep);
-    padding: 60px 32px 30px;
-    border-top: 1px solid var(--border-subtle);
-  }
-  .footer-brand-logo { text-align: center; margin-bottom: 40px; }
-  .footer-brand-logo img { height: 44px; }
-  .footer-inner {
-    max-width: 1080px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 40px; padding-bottom: 32px;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  .footer-col-title {
-    font-size: 11px; font-weight: 600; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
-  }
-  .footer-links { list-style: none; padding: 0; }
-  .footer-links li { padding: 5px 0; }
-  .footer-links a {
-    font-size: 14px; color: var(--text-muted);
-    transition: color 0.25s ease;
-  }
-  .footer-links a:hover { color: var(--teal); }
-  .footer-bottom {
-    max-width: 1080px; margin: 24px auto 0;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; color: var(--text-dim);
-  }
-  .footer-tagline em { font-style: italic; color: var(--gold); }
-
-  /* MOBILE */
+  /* MOBILE (page-specific sections only; nav + footer handled by styles.css) */
   @media (max-width: 900px) {
-    .nav { padding: 0 20px; }
-    .nav-links {
-      position: fixed; top: 72px; left: 0; right: 0;
-      flex-direction: column; gap: 0; padding: 16px 20px;
-      background: var(--navy-deep);
-      border-bottom: 1px solid var(--border-subtle);
-      display: none;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 14px 0; }
-    .nav-toggle { display: flex; }
-
     .filament-hero { padding: 110px 20px 60px; min-height: auto; }
     .pillar-section, .portal-section, .value-section, .engage-section, .standalone-section { padding: 70px 20px; }
     .pillar-block { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
     .pillar-block.reverse { direction: ltr; }
     .engage-cards { grid-template-columns: 1fr; }
-    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     .value-callout { padding: 36px 24px; }
     .standalone-callout { padding: 32px 22px; }
   }
@@ -531,8 +425,8 @@
     <h1 class="filament-hero-headline">Your platform. Your recruiter.<br><em>One system.</em></h1>
     <p class="filament-hero-sub">Sourcing, outreach, applicant tracking, your careers page, and a live client portal in one system. Filament comes with a recruiter. It doesn't require one.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
-      <a href="/brochures/Filament_ATS_Brochure.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:rgba(46,196,182,0.10);border:1px solid rgba(46,196,182,0.22);border-radius:6px;color:var(--teal);font-size:13px;font-weight:600;letter-spacing:0.5px;text-decoration:none;transition:background 0.25s ease,color 0.25s ease;" onmouseover="this.style.background='var(--teal)';this.style.color='var(--white)';" onmouseout="this.style.background='rgba(46,196,182,0.10)';this.style.color='var(--teal)';">Download Filament ATS Brochure ↓</a>
-      <a href="/brochures/Filament_One_Pager.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:6px;color:var(--text-muted);font-size:13px;font-weight:600;letter-spacing:0.5px;text-decoration:none;transition:color 0.25s ease,border-color 0.25s ease;" onmouseover="this.style.color='var(--teal)';this.style.borderColor='var(--teal)';" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='rgba(255,255,255,0.18)';">One-Pager ↓</a>
+      <a href="/brochures/Filament_ATS_Brochure.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:rgba(46,196,182,0.10);border:1px solid rgba(46,196,182,0.22);border-radius:6px;color:var(--teal);font-size:13px;font-weight:600;letter-spacing:0.5px;text-decoration:none;transition:background 0.25s ease,color 0.25s ease;" onmouseover="this.style.background='var(--teal)';this.style.color='var(--white)';" onmouseout="this.style.background='rgba(46,196,182,0.10)';this.style.color='var(--teal)';">Download Filament ATS Brochure &darr;</a>
+      <a href="/brochures/Filament_One_Pager.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:6px;color:var(--text-muted);font-size:13px;font-weight:600;letter-spacing:0.5px;text-decoration:none;transition:color 0.25s ease,border-color 0.25s ease;" onmouseover="this.style.color='var(--teal)';this.style.borderColor='var(--teal)';" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='rgba(255,255,255,0.18)';">One-Pager &darr;</a>
     </div>
   </div>
 </section>
@@ -541,11 +435,13 @@
 
 <!-- PILLAR 01 - HIRING INFRASTRUCTURE -->
 <section class="pillar-section">
-  <div class="section-eyebrow">Pillar 01 · Hiring Infrastructure</div>
-  <h2 class="section-headline">A complete <em>hiring system.</em></h2>
-  <p class="section-sub">Filament runs the whole hire: sourcing, outreach, tracking, your careers page, and the client portal. Run it with our specialist inside it, or run it yourself. For Talent Partner clients, Filament becomes part of your hiring stack, included in the engagement.</p>
+  <div class="sec-head">
+    <div class="eyebrow">Hiring Infrastructure</div>
+    <h2 class="headline">A complete <em>hiring system.</em></h2>
+    <p class="sec-sub">Filament runs the whole hire: sourcing, outreach, tracking, your careers page, and the client portal. Run it with our specialist inside it, or run it yourself. For Talent Partner clients, Filament becomes part of your hiring stack, included in the engagement.</p>
+  </div>
 
-  <div class="pillar-block">
+  <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Careers Page</div>
       <h3 class="pillar-title">A <em>client-branded careers page</em>, hosted on Filament.</h3>
@@ -563,7 +459,7 @@
     </div>
   </div>
 
-  <div class="pillar-block reverse">
+  <div class="pillar-block reverse reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Talent Map</div>
       <h3 class="pillar-title">A <em>talent map</em> that compounds across every search.</h3>
@@ -581,7 +477,7 @@
     </div>
   </div>
 
-  <div class="pillar-block">
+  <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Embedded Function</div>
       <h3 class="pillar-title">An <em>embedded recruiting function</em>, without the long-term commitment.</h3>
@@ -604,11 +500,13 @@
 
 <!-- PILLAR 02 - TRANSPARENCY + DATA -->
 <section class="pillar-section">
-  <div class="section-eyebrow">Pillar 02 · One Shared System</div>
-  <h2 class="section-headline">The pipeline, <em>as it forms.</em></h2>
-  <p class="section-sub">The client portal is one surface of Filament. Client and recruiter work in the same system, on the same data, at the same time. It goes live the same day the search does, and stays open from day one through the placement closing.</p>
+  <div class="sec-head">
+    <div class="eyebrow">One Shared System</div>
+    <h2 class="headline">The pipeline, <em>as it forms.</em></h2>
+    <p class="sec-sub">The client portal is one surface of Filament. Client and recruiter work in the same system, on the same data, at the same time. It goes live the same day the search does, and stays open from day one through the placement closing.</p>
+  </div>
 
-  <div class="pillar-block">
+  <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Real-Time Visibility</div>
       <h3 class="pillar-title">Every candidate, every stage, <em>every note.</em></h3>
@@ -626,7 +524,7 @@
     </div>
   </div>
 
-  <div class="pillar-block reverse">
+  <div class="pillar-block reverse reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Data Ownership</div>
       <h3 class="pillar-title">Your search <em>stays your search.</em></h3>
@@ -649,11 +547,13 @@
 
 <!-- PILLAR 03 - EFFICIENCY + MATCHMAKING -->
 <section class="pillar-section">
-  <div class="section-eyebrow">Pillar 03 · Efficiency + Matchmaking</div>
-  <h2 class="section-headline">Sharper hires, <em>faster.</em></h2>
-  <p class="section-sub">VoltForce gets the first vetted candidates in front of you within seven to ten days of a search opening. That speed comes from running senior searches on a platform built specifically for the sectors we serve.</p>
+  <div class="sec-head">
+    <div class="eyebrow">Efficiency + Matchmaking</div>
+    <h2 class="headline">Sharper hires, <em>faster.</em></h2>
+    <p class="sec-sub">VoltForce gets the first vetted candidates in front of you within seven to ten days of a search opening. That speed comes from running senior searches on a platform built specifically for the sectors we serve.</p>
+  </div>
 
-  <div class="pillar-block">
+  <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Sector-Tuned Taxonomy</div>
       <h3 class="pillar-title">A skill taxonomy built for the <em>verticals we serve.</em></h3>
@@ -671,7 +571,7 @@
     </div>
   </div>
 
-  <div class="pillar-block reverse">
+  <div class="pillar-block reverse reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Career-Arc Matching</div>
       <h3 class="pillar-title">Surfaces people whose <em>trajectories fit the role.</em></h3>
@@ -694,7 +594,7 @@
 
 <!-- VALUE CALLOUT - the $20K beat, positioned after all 3 pillars are established -->
 <section class="value-section">
-  <div class="value-callout">
+  <div class="value-callout reveal-up">
     <div class="value-callout-eyebrow">Added Value with Talent Partner</div>
     <div class="value-callout-setup">Hiring platforms run from roughly $10,000 a year for a small team to well past $50,000 at enterprise tier.</div>
     <div class="value-callout-headline">Included with <em>Talent Partner.</em></div>
@@ -706,22 +606,24 @@
 
 <!-- ENGAGEMENT MODELS -->
 <section class="engage-section">
-  <div class="section-eyebrow">How to Engage</div>
-  <h2 class="section-headline">Three ways to work <em>with VoltForce.</em></h2>
-  <p class="section-sub">Filament powers every engagement. The structure flexes to fit the shape of your hiring window.</p>
+  <div class="sec-head">
+    <div class="eyebrow">How to Engage</div>
+    <h2 class="headline">Three ways to work <em>with VoltForce.</em></h2>
+    <p class="sec-sub">Filament powers every engagement. The structure flexes to fit the shape of your hiring window.</p>
+  </div>
 
   <div class="engage-cards">
-    <div class="engage-card featured">
+    <div class="engage-card featured reveal-up">
       <div class="engage-card-type">Talent Partner</div>
       <div class="engage-card-title">Embedded &amp; Fractional</div>
       <p class="engage-card-text">Fractional embedded recruiting for teams in active scaling mode. Fractional embedded recruiting for teams in a ramp. The lowest cost per hire of any model, built for periods of volume. Six-month minimum. Your platform and your specialist in one engagement.</p>
     </div>
-    <div class="engage-card">
+    <div class="engage-card reveal-up rd1">
       <div class="engage-card-type">Retained</div>
       <div class="engage-card-title">Strategic &amp; Committed</div>
       <p class="engage-card-text">Strategic, mutually committed engagement for mission-critical hires. Single or multi-role. 20% of base salary, less the $7,500 retainer. Lower for multi-role searches and committed volume.</p>
     </div>
-    <div class="engage-card">
+    <div class="engage-card reveal-up rd2">
       <div class="engage-card-type">Contingent</div>
       <div class="engage-card-title">Per-Role Placement</div>
       <p class="engage-card-text">Standard placement engagement for individual hires. Starts at 25% of base salary, invoiced on placement, backed by our replacement guarantee.</p>
@@ -729,7 +631,7 @@
   </div>
 
   <div class="engage-link">
-    <a href="engagement.html">See full engagement details →</a>
+    <a href="engagement.html">See full engagement details &rarr;</a>
   </div>
 </section>
 
@@ -737,7 +639,7 @@
 
 <!-- STANDALONE FILAMENT CTA -->
 <section class="standalone-section">
-  <div class="standalone-callout">
+  <div class="standalone-callout reveal-up">
     <div class="standalone-eyebrow">Filament On Its Own</div>
     <h3 class="standalone-headline">Comes with a recruiter. <em>Doesn't require one.</em></h3>
     <p class="standalone-sub">Filament is available on its own, as a subscription. Your team runs your own hiring inside it: your careers page, your pipeline, your candidates, your decisions. Replace the platform you're paying for now with one built for how technical teams actually hire, typically for less than you're paying today.</p>
@@ -751,7 +653,7 @@
 <!-- CONTACT -->
 <section class="contact-block">
   <h2 class="contact-headline">Ready to see Filament <em>in action?</em></h2>
-  <a href="engagement.html#contact" class="contact-cta">Reach Out</a>
+  <a href="engagement.html#contact" class="btn-primary">Reach Out</a>
   <div class="contact-email">Or email <a href="mailto:matt@volt-force.com">matt@volt-force.com</a></div>
   <div style="margin-top:20px;font-size:13px;color:var(--text-dim);">Want the read-along version first? <a href="/brochures/Filament_ATS_Brochure.pdf" download style="color:var(--teal);border-bottom:1px solid currentColor;">Download the Filament ATS brochure</a>.</div>
 </section>
@@ -771,37 +673,53 @@
         <li><a href="filament.html">Filament</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="join-us.html">Join Us</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Verticals</div>
       <ul class="footer-links">
-        <li><a href="climatech-recruitment.html">Climatech</a></li>
-        <li><a href="advanced-materials-recruitment.html">Advanced Materials</a></li>
-        <li><a href="industry-4-recruitment.html">Industry 4.0</a></li>
+        <li><a href="climatech-recruitment.html">Climatech Recruitment</a></li>
+        <li><a href="advanced-materials-recruitment.html">Advanced Materials Recruitment</a></li>
+        <li><a href="industry-4-recruitment.html">Industry 4.0 Recruitment</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Connect</div>
+      <div class="footer-col-title">Social</div>
       <ul class="footer-links">
-        <li><a href="mailto:matt@volt-force.com">matt@volt-force.com</a></li>
-        <li><a href="https://www.linkedin.com/company/voltforce" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/company/volt-forcellc/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/careers">Careers</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Filament</div>
-      <ul class="footer-links">
-        <li><a href="/careers">Open Roles</a></li>
-        <li><a href="filament.html">Platform Overview</a></li>
-      </ul>
+      <div class="footer-col-title">Get in Touch</div>
+      <p style="font-size:15px;color:var(--ink-58);margin-bottom:16px;">Ready to build your team?</p>
+      <a href="engagement.html#contact" class="btn-primary" style="padding:11px 26px;">Contact Us</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© VoltForce. All rights reserved.</div>
-    <div class="footer-tagline">The Talent Behind <em>Tomorrow.</em></div>
+    <img src="images/Just_Logo_White_Clean.png" alt="">&copy; 2026 VoltForce LLC. All rights reserved.
   </div>
-<div style="text-align:center;padding:14px 6vw 0;font-size:12px;line-height:1.8"><a href="/privacy-policy.html" style="color:inherit;opacity:.75;text-decoration:underline">Privacy Policy</a> &middot; <a href="/terms-of-use.html" style="color:inherit;opacity:.75;text-decoration:underline">Terms of Use</a> &middot; <a href="/accessibility.html" style="color:inherit;opacity:.75;text-decoration:underline">Accessibility</a></div>
+  <div class="footer-legal">
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="/terms-of-use.html">Terms of Use</a> &middot;
+    <a href="/accessibility.html">Accessibility</a>
+  </div>
 </footer>
 
+<script>
+  // Scroll reveal
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal-up').forEach(function (el) { el.classList.add('in-view'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal-up').forEach(function (el) { io.observe(el); });
+  }
+</script>
 </body>
 </html>

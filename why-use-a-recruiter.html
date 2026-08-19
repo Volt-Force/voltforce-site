@@ -8,6 +8,7 @@
 <meta name="keywords" content="why use a recruiter, specialist recruiter, specialist recruitment firm, technical recruitment, climatech recruiter, advanced materials hiring, in-house vs agency recruitment">
 <link rel="canonical" href="https://volt-force.com/why-use-a-recruiter.html">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
 <meta property="og:title" content="Why Partner with a Recruiter? | VoltForce">
 <meta property="og:description" content="Why work with a specialist recruiter for climatech, materials, and Industry 4.0 hires.">
 <meta property="og:image" content="https://volt-force.com/images/og-image.png">
@@ -28,461 +29,183 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  :root {
-    --navy: #0d1b2a;
-    --navy-mid: #152336;
-    --navy-light: #1e3351;
-    --teal: #2ec4c4;
-    --teal-dark: #1a9999;
-    --gold: #c8963e;
-    --gold-light: #e0b060;
-    --white: #f8f8f4;
-    --off-white: #e8e4dc;
-    --muted: #8fa3b8;
-    --text-body: #c8d8e8;
+  /* ---------- page-specific: why-use-a-recruiter ---------- */
+  .vertical-hero { position: relative; padding: 160px 32px 70px; text-align: center; overflow: hidden; }
+  .vertical-hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(46,196,182,0.10) 0%, transparent 70%), var(--navy); }
+  .vertical-hero-content { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; }
+  .vertical-hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.6vw, 60px); font-weight: 700; color: var(--white); line-height: 1.08; margin-bottom: 20px; letter-spacing: -0.02em; }
+  .vertical-hero-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
+  .vertical-hero-sub { font-size: 18px; color: var(--ink-72); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+
+  .section { padding: 40px 32px 60px; max-width: 1160px; margin: 0 auto; }
+  .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+  .highlight-bar { max-width: 1000px; margin: 0 auto 40px; padding: 30px 36px; border: 1px solid var(--line-teal); border-radius: 14px; background: rgba(46,196,182,0.04); display: flex; align-items: center; gap: 30px; }
+  .highlight-stat { text-align: center; min-width: 120px; }
+  .highlight-stat .num { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 54px; color: var(--gold); line-height: 1; }
+  .highlight-stat .unit { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-58); margin-top: 8px; }
+  .highlight-divider { width: 1px; height: 58px; background: var(--line-teal); }
+  .highlight-text { font-size: 16px; color: var(--ink-72); line-height: 1.7; }
+  .highlight-text strong { color: var(--white); font-weight: 600; }
+
+  .cta-section { padding: 10px 32px 96px; text-align: center; }
+  .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 26px; letter-spacing: -0.02em; }
+  .cta-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
+
+  @media (max-width: 1024px) {
+    .reasons-grid { grid-template-columns: 1fr 1fr; }
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { font-size: 16px; }
-
-  body {
-    background: var(--navy);
-    color: var(--text-body);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ─── LAYOUT ─── */
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: var(--navy);
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media print {
-    body { background: var(--navy); }
-    .page { margin: 0; }
-    @page { size: A4; margin: 0; }
-  }
-
-  @media screen {
-    body { padding: 32px 0; background: #07101a; }
-    .page { box-shadow: 0 20px 80px rgba(0,0,0,0.7); }
-  }
-
-  /* ─── TYPOGRAPHY ─── */
-  .serif { font-family: 'Playfair Display', Georgia, serif; }
-  .mono { font-family: 'DM Mono', monospace; }
-
-  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.15; }
-
-  .label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    font-weight: 500;
-  }
-
-  /* ─── DECORATIVE ─── */
-  .teal-rule {
-    width: 48px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--teal), transparent);
-    margin-bottom: 20px;
-  }
-
-  .corner-mark {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-color: var(--teal);
-    border-style: solid;
-    opacity: 0.2;
-  }
-  .corner-mark.tl { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
-  .corner-mark.br { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
-
-  /* ─── HEADER BAR ─── */
-  .header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 32px;
-    border-bottom: 1px solid rgba(46,196,196,0.12);
-  }
-
-  .logo-lockup {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-icon svg { width: 18px; height: 18px; }
-
-  .logo-wordmark {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--white);
-    letter-spacing: 0.02em;
-  }
-
-  .header-section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  /* ─── HERO SECTION ─── */
-  .hero {
-    padding: 36px 40px 28px;
-    position: relative;
-  }
-
-  .hero-accent {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 180px;
-    height: 100%;
-    background: linear-gradient(160deg, rgba(46,196,196,0.04) 0%, rgba(46,196,196,0.01) 100%);
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-
-  .hero-tagline {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 16px;
-  }
-
-  .hero h1 {
-    font-weight: 900;
-    font-size: 44px;
-    line-height: 1.05;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-    font-weight: 400;
-  }
-
-  .hero-sub {
-    max-width: 420px;
-    font-size: 12.5px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-top: 14px;
-    font-weight: 300;
-  }
-
-  /* ─── DIVIDER ─── */
-  .divider {
-    height: 1px;
-    margin: 0 40px;
-    background: linear-gradient(90deg, rgba(46,196,196,0.2), rgba(46,196,196,0.05), transparent);
-  }
-
-  /* ─── REASONS GRID ─── */
-  .reasons {
-    padding: 28px 40px 20px;
-    flex: 1;
-  }
-
-  .reasons-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    font-weight: 500;
-    margin-bottom: 22px;
-  }
-
-  .reasons-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 28px;
-  }
-
-  .reason {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .reason-num {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: rgba(46,196,196,0.2);
-    line-height: 1;
-    min-width: 32px;
-    padding-top: 2px;
-  }
-
-  .reason-content h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--white);
-    margin-bottom: 5px;
-    line-height: 1.3;
-  }
-
-  .reason-content p {
-    font-size: 11px;
-    line-height: 1.6;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  /* ─── BOTTOM HIGHLIGHT ─── */
-  .highlight-bar {
-    margin: 0 40px 24px;
-    padding: 18px 24px;
-    border: 1px solid rgba(46,196,196,0.15);
-    border-radius: 6px;
-    background: rgba(46,196,196,0.03);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .highlight-stat {
-    text-align: center;
-    min-width: 100px;
-  }
-
-  .highlight-stat .num {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 32px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .highlight-stat .unit {
-    font-family: 'DM Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-
-  .highlight-divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(46,196,196,0.15);
-  }
-
-  .highlight-text {
-    font-size: 12px;
-    color: var(--text-body);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  .highlight-text strong {
-    color: var(--white);
-    font-weight: 500;
-  }
-
-  /* ─── FOOTER ─── */
-  .footer {
-    padding: 16px 40px;
-    border-top: 1px solid rgba(46,196,196,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .footer-cta {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--white);
-    background: var(--teal);
-    padding: 8px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-
-  .footer-contact {
-    font-size: 10px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .footer-contact a {
-    color: var(--teal);
-    text-decoration: none;
-  }
-
-  .footer-tagline {
-    font-family: 'DM Mono', monospace;
-    font-size: 7.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
+  @media (max-width: 900px) {
+    .vertical-hero { padding: 110px 20px 50px; }
+    .section { padding: 30px 20px 44px; }
+    .reasons-grid { grid-template-columns: 1fr; }
+    .highlight-bar { flex-direction: column; text-align: center; gap: 18px; }
+    .highlight-divider { display: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="page">
-  <div class="corner-mark tl"></div>
-  <div class="corner-mark br"></div>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VoltForce">
+    <span>VoltForce</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#frontiers">Specialisms</a>
+    <a href="filament.html">Filament</a>
+    <a href="resources.html" class="active">Resources</a>
+    <a href="engagement.html">Engagement</a>
+    <a href="join-us.html">Join Us</a>
+    <a href="/careers" class="nav-cta">Careers</a>
+  </div>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-  <!-- HEADER -->
-  <div class="header-bar">
-    <div class="logo-lockup">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0d1b2a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-      </div>
-      <span class="logo-wordmark">VoltForce</span>
+<section class="vertical-hero">
+  <div class="vertical-hero-bg"></div>
+  <div class="vertical-hero-content">
+    <div class="eyebrow">The case for a recruitment partner</div>
+    <h1 class="vertical-hero-headline">The right hire<br><em>changes everything.</em></h1>
+    <p class="vertical-hero-sub">You're building something that matters. But hiring in Climatech, Advanced Materials, and Industry 4.0 isn't like hiring in big tech: the talent pools are smaller, the stakes are higher, and a wrong hire costs more than just a salary.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head">
+    <div class="eyebrow">Six reasons to work with a specialist recruiter</div>
+  </div>
+  <div class="reasons-grid">
+    <div class="card reveal-up">
+      <div class="card-title">Access Passive Candidates</div>
+      <div class="card-text">The best people in your space aren't on job boards. They're heads-down building. A recruiter with deep domain networks reaches the candidates you can't find on LinkedIn.</div>
     </div>
-    <span class="header-section-label">Why Partner with a Recruiter</span>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-accent"></div>
-    <div class="hero-tagline">The case for a recruitment partner</div>
-    <h1>The right hire<br><em>changes everything.</em></h1>
-    <p class="hero-sub">
-      You're building something that matters. But hiring in Climatech, Advanced Materials, and Industry 4.0 isn't like hiring in big tech: the talent pools are smaller, the stakes are higher, and a wrong hire costs more than just a salary.
-    </p>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- REASONS -->
-  <div class="reasons">
-    <div class="reasons-label">Six reasons to work with a specialist recruiter</div>
-    <div class="reasons-grid">
-
-      <div class="reason">
-        <div class="reason-num">01</div>
-        <div class="reason-content">
-          <h3>Access Passive Candidates</h3>
-          <p>The best people in your space aren't on job boards. They're heads-down building. A recruiter with deep domain networks reaches the candidates you can't find on LinkedIn.</p>
-        </div>
-      </div>
-
-      <div class="reason">
-        <div class="reason-num">02</div>
-        <div class="reason-content">
-          <h3>Full-Time Recruiting Without the Full-Time Cost</h3>
-          <p>At the pre-seed through Series C stage, hiring comes in waves: three critical roles one quarter, nothing the next. A full-time internal recruiter is a six-figure fixed cost you can't justify year-round. A recruitment partner gives you that firepower exactly when you need it, and disappears when you don't.</p>
-        </div>
-      </div>
-
-      <div class="reason">
-        <div class="reason-num">03</div>
-        <div class="reason-content">
-          <h3>Reduce the Cost of a Bad Hire</h3>
-          <p>A mis-hire at an early-stage company doesn't just cost salary. It costs momentum. The U.S. Department of Labor estimates a bad hire runs up to 30% of their first-year earnings. When your team is 15 people, one wrong call is felt everywhere.</p>
-        </div>
-      </div>
-
-      <div class="reason">
-        <div class="reason-num">04</div>
-        <div class="reason-content">
-          <h3>Market Intelligence</h3>
-          <p>A specialist recruiter knows what competitors are paying, where talent is concentrated, and what's motivating candidates to move. That intel shapes better offers and faster closes.</p>
-        </div>
-      </div>
-
-      <div class="reason">
-        <div class="reason-num">05</div>
-        <div class="reason-content">
-          <h3>Speed to Hire</h3>
-          <p>Every day a critical role sits open costs momentum. A recruiter with an active network can deliver qualified candidates in days, not months, because the outreach started before your search did.</p>
-        </div>
-      </div>
-
-      <div class="reason">
-        <div class="reason-num">06</div>
-        <div class="reason-content">
-          <h3>Confidentiality & Discretion</h3>
-          <p>Replacing a key leader? Entering a new market? Some searches can't be public. A recruiter runs the process discreetly, protecting your strategy and your team's stability.</p>
-        </div>
-      </div>
-
+    <div class="card reveal-up rd1">
+      <div class="card-title">Full-Time Recruiting Without the Full-Time Cost</div>
+      <div class="card-text">At the pre-seed through Series C stage, hiring comes in waves: three critical roles one quarter, nothing the next. A full-time internal recruiter is a six-figure fixed cost you can't justify year-round. A recruitment partner gives you that firepower exactly when you need it, and disappears when you don't.</div>
+    </div>
+    <div class="card reveal-up rd2">
+      <div class="card-title">Reduce the Cost of a Bad Hire</div>
+      <div class="card-text">A mis-hire at an early-stage company doesn't just cost salary. It costs momentum. The U.S. Department of Labor estimates a bad hire runs up to 30% of their first-year earnings. When your team is 15 people, one wrong call is felt everywhere.</div>
+    </div>
+    <div class="card reveal-up">
+      <div class="card-title">Market Intelligence</div>
+      <div class="card-text">A specialist recruiter knows what competitors are paying, where talent is concentrated, and what's motivating candidates to move. That intel shapes better offers and faster closes.</div>
+    </div>
+    <div class="card reveal-up rd1">
+      <div class="card-title">Speed to Hire</div>
+      <div class="card-text">Every day a critical role sits open costs momentum. A recruiter with an active network can deliver qualified candidates in days, not months, because the outreach started before your search did.</div>
+    </div>
+    <div class="card reveal-up rd2">
+      <div class="card-title">Confidentiality &amp; Discretion</div>
+      <div class="card-text">Replacing a key leader? Entering a new market? Some searches can't be public. A recruiter runs the process discreetly, protecting your strategy and your team's stability.</div>
     </div>
   </div>
+</section>
 
-  <!-- HIGHLIGHT BAR -->
-  <div class="highlight-bar">
-    <div class="highlight-stat">
-      <div class="num">74%</div>
-      <div class="unit">of searches</div>
-    </div>
-    <div class="highlight-divider"></div>
-    <div class="highlight-text">
-      The average recruitment firm abandons nearly <strong>3 out of 4 searches</strong> before making a placement. At VoltForce, we operate with a 100% fill rate mentality: we don't quit until the work is done.
-    </div>
+<div class="highlight-bar reveal-up">
+  <div class="highlight-stat">
+    <div class="num">74%</div>
+    <div class="unit">of searches</div>
   </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-left">
-      <a href="mailto:matt@volt-force.com" class="footer-cta">Let's Talk</a>
-      <div class="footer-contact">
-        matt@volt-force.com<br>
-        <a href="https://volt-force.com">volt-force.com</a>
-      </div>
-    </div>
-    <div class="footer-tagline">The Talent Behind <em>Tomorrow.</em></div>
+  <div class="highlight-divider"></div>
+  <div class="highlight-text">
+    The average recruitment firm abandons nearly <strong>3 out of 4 searches</strong> before making a placement. At VoltForce, we operate with a 100% fill rate mentality: we don't quit until the work is done.
   </div>
-
-  <div style="text-align:center;padding:14px 6vw 0;font-size:12px;line-height:1.8">
-    <a href="/privacy-policy.html" style="color:inherit;opacity:.75;text-decoration:underline">Privacy Policy</a> &middot;
-    <a href="/terms-of-use.html" style="color:inherit;opacity:.75;text-decoration:underline">Terms of Use</a> &middot;
-    <a href="/accessibility.html" style="color:inherit;opacity:.75;text-decoration:underline">Accessibility</a>
-  </div>
-
 </div>
 
+<section class="cta-section reveal-up">
+  <h2 class="cta-headline">The Talent Behind <em>Tomorrow.</em></h2>
+  <a href="mailto:matt@volt-force.com" class="btn-primary">Let's Talk</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand-logo">
+    <img src="images/Full_Logo_White_Clean.png" alt="VoltForce">
+  </div>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-col-title">Menu</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#frontiers">Specialisms</a></li>
+        <li><a href="filament.html">Filament</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="join-us.html">Join Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Verticals</div>
+      <ul class="footer-links">
+        <li><a href="climatech-recruitment.html">Climatech Recruitment</a></li>
+        <li><a href="advanced-materials-recruitment.html">Advanced Materials Recruitment</a></li>
+        <li><a href="industry-4-recruitment.html">Industry 4.0 Recruitment</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Social</div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/company/volt-forcellc/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/careers">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <p style="font-size:15px;color:var(--ink-58);margin-bottom:16px;">Ready to build your team?</p>
+      <a href="engagement.html#contact" class="btn-primary" style="padding:11px 26px;">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <img src="images/Just_Logo_White_Clean.png" alt="">&copy; 2026 VoltForce LLC. All rights reserved.
+  </div>
+  <div class="footer-legal">
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="/terms-of-use.html">Terms of Use</a> &middot;
+    <a href="/accessibility.html">Accessibility</a>
+  </div>
+</footer>
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal-up').forEach(function (el) { el.classList.add('in-view'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal-up').forEach(function (el) { io.observe(el); });
+  }
+</script>
 </body>
 </html>

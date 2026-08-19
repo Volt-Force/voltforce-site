@@ -80,8 +80,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
     --navy: #0B1D3A; --navy-deep: #081628; --navy-mid: #132B4F; --navy-light: #1A3A6B;
     --teal: #2EC4B6; --gold: #D4A853; --white: #FFFFFF;
@@ -89,26 +89,10 @@
     --text-muted: rgba(255,255,255,0.55); --text-dim: rgba(255,255,255,0.35);
     --border-subtle: rgba(255,255,255,0.08); --border-teal: rgba(46,196,182,0.2);
   }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text-main); -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden; }
-  a { text-decoration: none; color: inherit; }
-  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(11,29,58,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
-  .nav-logo { display: flex; align-items: center; gap: 14px; }
-  .nav-logo img { height: 44px; width: auto; }
-  .nav-logo span { font-size: 16px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-bright); }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.25s ease; letter-spacing: 0.3px; }
-  .nav-links a:hover, .nav-links a.active { color: var(--teal); }
-  .nav-cta { font-size: 13px !important; font-weight: 600 !important; color: var(--white) !important; background: var(--teal); padding: 9px 22px; border-radius: 6px; transition: background 0.25s ease; }
-  .nav-cta:hover { background: #26A89C; }
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .nav-toggle span { width: 24px; height: 2px; background: var(--text-bright); border-radius: 2px; }
-
   .vertical-hero { position: relative; padding: 160px 32px 80px; text-align: center; overflow: hidden; }
   .vertical-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(46,196,182,0.10) 0%, transparent 70%), var(--navy); }
   .vertical-hero-img { position: absolute; inset: 0; background-image: url('images/electrification.jpg'); background-size: cover; background-position: center; opacity: 0.15; }
   .vertical-hero-content { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
-  .vertical-hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 22px; }
   .vertical-hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.6vw, 62px); font-weight: 700; color: var(--text-bright); line-height: 1.12; margin-bottom: 22px; }
   .vertical-hero-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
   .vertical-hero-sub { font-size: 18px; color: var(--text-main); max-width: 720px; margin: 0 auto; line-height: 1.7; }
@@ -146,38 +130,21 @@
   .cta-section { padding: 80px 32px; text-align: center; max-width: 800px; margin: 0 auto; }
   .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: var(--text-bright); line-height: 1.2; margin-bottom: 24px; }
   .cta-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
-  .cta-btn { display: inline-block; padding: 16px 36px; background: var(--teal); color: var(--white); font-size: 15px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 6px; transition: background 0.25s ease, transform 0.25s ease; }
-  .cta-btn:hover { background: #26A89C; transform: translateY(-1px); }
-
-  .footer { background: var(--navy-deep); padding: 60px 32px 30px; border-top: 1px solid var(--border-subtle); }
-  .footer-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border-subtle); }
-  .footer-col-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
-  .footer-links { list-style: none; padding: 0; }
-  .footer-links li { padding: 5px 0; }
-  .footer-links a { font-size: 14px; color: var(--text-muted); }
-  .footer-links a:hover { color: var(--teal); }
-  .footer-bottom { max-width: 1080px; margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-dim); }
-  .footer-tagline em { font-style: italic; color: var(--gold); }
-
   @media (max-width: 900px) {
-    .nav { padding: 0 20px; }
-    .nav-links { position: fixed; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; padding: 16px 20px; background: var(--navy-deep); border-bottom: 1px solid var(--border-subtle); display: none; }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 14px 0; }
-    .nav-toggle { display: flex; }
     .vertical-hero { padding: 110px 20px 60px; }
     .section, .faq-section, .cta-section { padding: 50px 20px; }
     .pullquote { padding: 22px 24px; }
     .pullquote p { font-size: 18px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="VoltForce logo"><span>VoltForce</span></a>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VoltForce">
+    <span>VoltForce</span>
+  </a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="index.html#why">Why Us</a>
@@ -188,21 +155,23 @@
     <a href="join-us.html">Join Us</a>
     <a href="/careers" class="nav-cta">Careers</a>
   </div>
-  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <section class="vertical-hero">
   <div class="vertical-hero-bg"></div>
   <div class="vertical-hero-img"></div>
   <div class="vertical-hero-content">
-    <div class="vertical-hero-eyebrow">Founder Playbook</div>
+    <div class="eyebrow">Founder Playbook</div>
     <h1 class="vertical-hero-headline">The Real Cost of a Bad Senior Hire at <em>a Series A Climatech.</em></h1>
     <p class="vertical-hero-sub">The salary line captures about 20% of what a misfit senior hire actually costs at this stage. The roadmap, the cap table, and the next funding round capture the other 80%. A breakdown from the recruiting side.</p>
     <div class="article-meta">By Matt Anders, Founder &middot; VoltForce &middot; <em>June 2026</em></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Standard Estimate</div>
   <h2 class="section-headline">Most founders quote 30% of first-year salary. <em>That's the floor, not the cost.</em></h2>
   <p class="section-body">Almost every founder I work with sizes up a senior hire against the same number. The US Department of Labor estimates a bad hire costs up to 30% of the employee's first-year earnings. At a $250,000 base, that's $75,000. Easy math.</p>
@@ -210,7 +179,7 @@
   <p class="section-body">Here's what a bad senior hire actually costs at this stage, broken out. The math isn't theoretical. I've worked the recruiting side of the equation when these hires didn't land, and the costs that don't show up in the salary line are the ones that bite hardest.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">What It Actually Costs</div>
   <h2 class="section-headline">Seven cost categories. <em>Six of them aren't on the salary line.</em></h2>
   <p class="section-body">When you actually total up what a bad senior hire costs a Series A climatech, you're looking at something more like this.</p>
@@ -226,7 +195,7 @@
   <p class="section-body">Add it up at a Series A climatech and the total cost of a bad senior hire lands somewhere between $400,000 and $1.2 million, depending on the seniority of the role and the length of the bad tenure. Most of it never hits the salary line.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">A Worked Example</div>
   <h2 class="section-headline">How it actually unfolds. <em>Twelve months, one bad hire.</em></h2>
   <p class="section-body">Take a Series A climatech hiring a Head of Process. Base $275,000. Equity 1.5%. Senior, mid-career, joining to own pilot scale-up over the next 18 months. Here's what tends to happen when the hire is wrong.</p>
@@ -240,11 +209,11 @@
   <p class="section-body">Twelve months elapsed. The original 18-month commercial milestone is now sitting at month 24 to 30 instead. The next funding round depends on that milestone, which means the company's runway pressure just compounded. That's the cost the salary line doesn't capture.</p>
 </section>
 
-<div class="pullquote">
+<div class="pullquote reveal-up">
   <p>The salary line captures about 20% of what a bad senior hire actually costs at this stage. <em>The roadmap captures the other 80%.</em></p>
 </div>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Climatech Multiplier</div>
   <h2 class="section-headline">Why Series A climatech is structurally worse than <em>average startup hiring.</em></h2>
   <p class="section-body">The same bad senior hire at a Series A SaaS company is bad, but recoverable. At a Series A climatech, the same hire is meaningfully worse. A few reasons.</p>
@@ -255,7 +224,7 @@
   <p class="section-body">The combination of these dynamics is why the standard 30%-of-salary estimate undershoots so badly at this stage. The wrong hire doesn't just cost you a year of salary. It costs you the milestone that determines whether you raise the next round.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">Patterns From the Desk</div>
   <h2 class="section-headline">Four patterns I see in nearly every senior hire <em>that goes wrong.</em></h2>
   <p class="section-body">From the recruiting side, the patterns are consistent. When a senior hire at Series A climatech goes wrong, it's usually one of these.</p>
@@ -267,7 +236,7 @@
   </ol>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Playbook</div>
   <h2 class="section-headline">What actually moves <em>the failure rate down.</em></h2>
   <p class="section-body">There isn't a way to get senior hiring to zero failure rate. Even the best searches miss occasionally. But the practices below move the failure rate from "common" to "rare" in my experience.</p>
@@ -280,7 +249,7 @@
   </ol>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Bottom Line</div>
   <h2 class="section-headline">The hire that doesn't land <em>doesn't just cost you the salary.</em></h2>
   <p class="section-body">The standard 30%-of-salary estimate for a bad hire isn't wrong. It's just incomplete for a Series A climatech. The real cost compounds across roadmap velocity, equity drag, candidate pool, team morale, and the next funding conversation. At this stage, those compounding costs are the ones that determine whether the company makes it to Series B in shape.</p>
@@ -320,21 +289,26 @@
   </div>
 </section>
 
-<section class="cta-section">
+<section class="cta-section reveal-up">
   <h2 class="cta-headline">Running a senior hire at Series A? <em>Let's talk before the search opens.</em></h2>
-  <a href="engagement.html#contact" class="cta-btn">Reach Out</a>
+  <a href="engagement.html#contact" class="btn-primary">Reach Out</a>
 </section>
 
 <footer class="footer">
+  <div class="footer-brand-logo">
+    <img src="images/Full_Logo_White_Clean.png" alt="VoltForce">
+  </div>
   <div class="footer-inner">
     <div>
       <div class="footer-col-title">Menu</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#frontiers">Specialisms</a></li>
         <li><a href="filament.html">Filament</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="join-us.html">Join Us</a></li>
       </ul>
     </div>
     <div>
@@ -346,18 +320,40 @@
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Connect</div>
+      <div class="footer-col-title">Social</div>
       <ul class="footer-links">
-        <li><a href="mailto:matt@volt-force.com">matt@volt-force.com</a></li>
-        <li><a href="https://www.linkedin.com/company/voltforce" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/company/volt-forcellc/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/careers">Careers</a></li>
       </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <p style="font-size:15px;color:var(--ink-58);margin-bottom:16px;">Ready to build your team?</p>
+      <a href="engagement.html#contact" class="btn-primary" style="padding:11px 26px;">Contact Us</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>&copy; VoltForce. All rights reserved.</div>
-    <div class="footer-tagline">The Talent Behind <em>Tomorrow.</em></div>
+    <img src="images/Just_Logo_White_Clean.png" alt="">&copy; 2026 VoltForce LLC. All rights reserved.
   </div>
-<div style="text-align:center;padding:14px 6vw 0;font-size:12px;line-height:1.8"><a href="/privacy-policy.html" style="color:inherit;opacity:.75;text-decoration:underline">Privacy Policy</a> &middot; <a href="/terms-of-use.html" style="color:inherit;opacity:.75;text-decoration:underline">Terms of Use</a> &middot; <a href="/accessibility.html" style="color:inherit;opacity:.75;text-decoration:underline">Accessibility</a></div>
+  <div class="footer-legal">
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="/terms-of-use.html">Terms of Use</a> &middot;
+    <a href="/accessibility.html">Accessibility</a>
+  </div>
 </footer>
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal-up').forEach(function (el) { el.classList.add('in-view'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal-up').forEach(function (el) { io.observe(el); });
+  }
+</script>
 </body>
 </html>

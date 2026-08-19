@@ -85,8 +85,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
     --navy: #0B1D3A; --navy-deep: #081628; --navy-mid: #132B4F; --navy-light: #1A3A6B;
     --teal: #2EC4B6; --gold: #D4A853; --white: #FFFFFF;
@@ -94,26 +94,10 @@
     --text-muted: rgba(255,255,255,0.55); --text-dim: rgba(255,255,255,0.35);
     --border-subtle: rgba(255,255,255,0.08); --border-teal: rgba(46,196,182,0.2);
   }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text-main); -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden; }
-  a { text-decoration: none; color: inherit; }
-  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(11,29,58,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
-  .nav-logo { display: flex; align-items: center; gap: 14px; }
-  .nav-logo img { height: 44px; width: auto; }
-  .nav-logo span { font-size: 16px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-bright); }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.25s ease; letter-spacing: 0.3px; }
-  .nav-links a:hover, .nav-links a.active { color: var(--teal); }
-  .nav-cta { font-size: 13px !important; font-weight: 600 !important; color: var(--white) !important; background: var(--teal); padding: 9px 22px; border-radius: 6px; transition: background 0.25s ease; }
-  .nav-cta:hover { background: #26A89C; }
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .nav-toggle span { width: 24px; height: 2px; background: var(--text-bright); border-radius: 2px; }
-
   .vertical-hero { position: relative; padding: 160px 32px 80px; text-align: center; overflow: hidden; }
   .vertical-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(46,196,182,0.10) 0%, transparent 70%), var(--navy); }
   .vertical-hero-img { position: absolute; inset: 0; background-image: url('images/materials.jpg'); background-size: cover; background-position: center; opacity: 0.15; }
   .vertical-hero-content { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
-  .vertical-hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 22px; }
   .vertical-hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.6vw, 62px); font-weight: 700; color: var(--text-bright); line-height: 1.12; margin-bottom: 22px; }
   .vertical-hero-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
   .vertical-hero-sub { font-size: 18px; color: var(--text-main); max-width: 720px; margin: 0 auto; line-height: 1.7; }
@@ -151,38 +135,21 @@
   .cta-section { padding: 80px 32px; text-align: center; max-width: 800px; margin: 0 auto; }
   .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: var(--text-bright); line-height: 1.2; margin-bottom: 24px; }
   .cta-headline em { font-style: italic; color: var(--gold); font-weight: 500; }
-  .cta-btn { display: inline-block; padding: 16px 36px; background: var(--teal); color: var(--white); font-size: 15px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-radius: 6px; transition: background 0.25s ease, transform 0.25s ease; }
-  .cta-btn:hover { background: #26A89C; transform: translateY(-1px); }
-
-  .footer { background: var(--navy-deep); padding: 60px 32px 30px; border-top: 1px solid var(--border-subtle); }
-  .footer-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border-subtle); }
-  .footer-col-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
-  .footer-links { list-style: none; padding: 0; }
-  .footer-links li { padding: 5px 0; }
-  .footer-links a { font-size: 14px; color: var(--text-muted); }
-  .footer-links a:hover { color: var(--teal); }
-  .footer-bottom { max-width: 1080px; margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-dim); }
-  .footer-tagline em { font-style: italic; color: var(--gold); }
-
   @media (max-width: 900px) {
-    .nav { padding: 0 20px; }
-    .nav-links { position: fixed; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; padding: 16px 20px; background: var(--navy-deep); border-bottom: 1px solid var(--border-subtle); display: none; }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 14px 0; }
-    .nav-toggle { display: flex; }
     .vertical-hero { padding: 110px 20px 60px; }
     .section, .faq-section, .cta-section { padding: 50px 20px; }
     .pullquote { padding: 22px 24px; }
     .pullquote p { font-size: 18px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="VoltForce logo"><span>VoltForce</span></a>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VoltForce">
+    <span>VoltForce</span>
+  </a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="index.html#why">Why Us</a>
@@ -193,21 +160,23 @@
     <a href="join-us.html">Join Us</a>
     <a href="/careers" class="nav-cta">Careers</a>
   </div>
-  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <section class="vertical-hero">
   <div class="vertical-hero-bg"></div>
   <div class="vertical-hero-img"></div>
   <div class="vertical-hero-content">
-    <div class="vertical-hero-eyebrow">Sector Insight</div>
+    <div class="eyebrow">Sector Insight</div>
     <h1 class="vertical-hero-headline">The Quiet Talent War for Hydromet &amp; <em>Critical Minerals Engineers.</em></h1>
     <p class="vertical-hero-sub">Everyone watches the plants. Almost no one watches the people. A view from the recruiting desk on the hiring war reshaping critical minerals startups in 2026.</p>
     <div class="article-meta">By Matt Anders, Founder &middot; VoltForce &middot; <em>June 2026</em></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Visible War vs. The Invisible One</div>
   <h2 class="section-headline">The headlines are <em>about the plants.</em> The constraint is the people.</h2>
   <p class="section-body">Every week, another headline. A new lithium hydroxide refinery in Nevada. A rare earth separation facility in Texas. A federal loan for a hydromet startup. A DPA Title III graphite grant. The supply-side war for critical minerals is loud, well-covered, and getting most of the attention.</p>
@@ -215,7 +184,7 @@
   <p class="section-body">I've spent the past two years running senior searches in this space, and every founder I talk to tells me the same story in a slightly different sequence. The funding came in first. The plant design came in second. The talent question showed up third, and it's the one that bites hardest.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Bidders</div>
   <h2 class="section-headline">It is not a two-sided market. <em>It is a five-sided one.</em></h2>
   <p class="section-body">Here's what most founders don't realize when they open a senior hydromet search: they're not competing with one or two other startups. They're competing with five different categories of employer, all pulling on the same population at the same time. Map it out.</p>
@@ -229,7 +198,7 @@
   <p class="section-body">Five-way pull on the same population. That's the actual market shape, and most senior search timelines I see in critical minerals are built on a competitive assumption that's off by a factor of two or three.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Pipeline</div>
   <h2 class="section-headline">Five schools. Ten companies. <em>One small graduating class per year.</em></h2>
   <p class="section-body">The senior bench in hydromet and critical minerals processing across North America comes from a remarkably small set of places. If you mapped every senior hydromet engineer in a US or Canadian critical minerals startup right now, the academic and early-career pipelines would cluster like this.</p>
@@ -238,7 +207,7 @@
   <p class="section-body">This is also why a generalist recruiter can't effectively run a critical minerals search. The pipeline isn't sitting in LinkedIn keyword filters. It's in the alumni rolls of specific masters programs and the org charts of specific refineries. You need actual relationships inside both.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Squeeze</div>
   <h2 class="section-headline">Three forces are tightening the market <em>simultaneously.</em></h2>
   <p class="section-body">The market's been undersupplied for years. Three things are tightening it faster than the supply side can respond.</p>
@@ -247,7 +216,7 @@
   <p class="section-body"><strong>3. Comp expectations are rising fast.</strong> Critical minerals startups raising at Series A and B valuations in 2024 and 2025 set equity offers that pulled senior engineers out of legacy refining roles where comp had been flat for twenty years. The minute a senior engineer leaves a legacy company for a startup, the comp baseline resets for everyone in their network. From my read on the searches I've run and the offers I've helped structure, the total comp range for a Head of Process at a Series B critical minerals startup has moved up materially in three years. Some of that is real value capture. Some of it is the market correcting two decades of underpayment.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Shakeout</div>
   <h2 class="section-headline">The closures didn't grow the pool. <em>They just reshuffled it.</em></h2>
   <p class="section-body">The other thing reshaping this market right now is the cleantech and critical minerals shakeout. The headlines are familiar by now. Northvolt's Chapter 11 in November 2024 and the asset sales that ran through 2025. Li-Cycle's CCAA filing in May 2025 and Glencore's acquisition of the assets in August. Ascend Elements' Chapter 11 in April 2026. Core Lithium placing its Finniss project on care and maintenance back in January 2024. Albemarle pausing the Kemerton expansion in Western Australia. Piedmont Lithium running into delay after delay on its Carolina project. Each one came with layoffs, and each batch of layoffs released senior engineers back into the market.</p>
@@ -255,11 +224,11 @@
   <p class="section-body">The pool didn't grow. It just got reshuffled across fewer companies. If you're hiring into this market in 2026, that's the part to pay attention to.</p>
 </section>
 
-<div class="pullquote">
+<div class="pullquote reveal-up">
   <p>The talent question shows up later than the funding question and later than the facility question. <em>It ends up being the one that bites hardest.</em></p>
 </div>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">Patterns From the Desk</div>
   <h2 class="section-headline">Five mistakes I see <em>in nearly every senior search.</em></h2>
   <p class="section-body">After a couple of years running senior hydromet and critical minerals searches, the founder mistakes start to rhyme. Five I see in nearly every kickoff call:</p>
@@ -272,7 +241,7 @@
   </ol>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Playbook</div>
   <h2 class="section-headline">What I have seen <em>actually move searches.</em></h2>
   <p class="section-body">A small set of practices consistently shortens a senior critical minerals search and improves the placement. None of them are clever. All of them are underused.</p>
@@ -283,7 +252,7 @@
   <p class="section-body"><strong>Plan for cross-border closes from day one.</strong> Whether the candidate is US to Canada, Canada to US, or Australia to North America, the right time to engage immigration counsel is the first week of the search, not the week before the offer. The senior critical minerals talent market is cross-border by structure. Treat it that way.</p>
 </section>
 
-<section class="section">
+<section class="section reveal-up">
   <div class="section-eyebrow">The Forward Look</div>
   <h2 class="section-headline">The next five years will be defined <em>by who hires the talent first.</em></h2>
   <p class="section-body">The critical minerals industrial base in North America is being rebuilt for the first time in roughly four decades. Plants are getting funded. Off-take agreements are getting signed. Federal incentives are still flowing through the system. The one thing in short supply, and the thing that will stay in short supply through at least 2030, is the senior engineering talent that turns plant designs into operating circuits.</p>
@@ -328,21 +297,26 @@
   </div>
 </section>
 
-<section class="cta-section">
+<section class="cta-section reveal-up">
   <h2 class="cta-headline">Hiring senior critical minerals talent? <em>Let's talk.</em></h2>
-  <a href="engagement.html#contact" class="cta-btn">Reach Out</a>
+  <a href="engagement.html#contact" class="btn-primary">Reach Out</a>
 </section>
 
 <footer class="footer">
+  <div class="footer-brand-logo">
+    <img src="images/Full_Logo_White_Clean.png" alt="VoltForce">
+  </div>
   <div class="footer-inner">
     <div>
       <div class="footer-col-title">Menu</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#frontiers">Specialisms</a></li>
         <li><a href="filament.html">Filament</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="join-us.html">Join Us</a></li>
       </ul>
     </div>
     <div>
@@ -354,18 +328,40 @@
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Connect</div>
+      <div class="footer-col-title">Social</div>
       <ul class="footer-links">
-        <li><a href="mailto:matt@volt-force.com">matt@volt-force.com</a></li>
-        <li><a href="https://www.linkedin.com/company/voltforce" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/company/volt-forcellc/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/careers">Careers</a></li>
       </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Get in Touch</div>
+      <p style="font-size:15px;color:var(--ink-58);margin-bottom:16px;">Ready to build your team?</p>
+      <a href="engagement.html#contact" class="btn-primary" style="padding:11px 26px;">Contact Us</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>&copy; VoltForce. All rights reserved.</div>
-    <div class="footer-tagline">The Talent Behind <em>Tomorrow.</em></div>
+    <img src="images/Just_Logo_White_Clean.png" alt="">&copy; 2026 VoltForce LLC. All rights reserved.
   </div>
-<div style="text-align:center;padding:14px 6vw 0;font-size:12px;line-height:1.8"><a href="/privacy-policy.html" style="color:inherit;opacity:.75;text-decoration:underline">Privacy Policy</a> &middot; <a href="/terms-of-use.html" style="color:inherit;opacity:.75;text-decoration:underline">Terms of Use</a> &middot; <a href="/accessibility.html" style="color:inherit;opacity:.75;text-decoration:underline">Accessibility</a></div>
+  <div class="footer-legal">
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="/terms-of-use.html">Terms of Use</a> &middot;
+    <a href="/accessibility.html">Accessibility</a>
+  </div>
 </footer>
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal-up').forEach(function (el) { el.classList.add('in-view'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal-up').forEach(function (el) { io.observe(el); });
+  }
+</script>
 </body>
 </html>
