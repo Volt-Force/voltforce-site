@@ -17,8 +17,8 @@
 /join-us                    /join-us.html                      200
 
 # Careers — proxy to Filament (NAS-served) so users see volt-force.com/careers
-/careers       https://app.volt-force.com/careers          200
-/careers/*     https://app.volt-force.com/careers/:splat   200
+/careers       https://app.filamentats.com/careers          200
+/careers/*     https://app.filamentats.com/careers/:splat   200
 
 # Note: /sitemap.xml and /robots.txt previously proxied to Filament.
 # As of 2026-06-18 they are served directly by Netlify from this repo
@@ -26,11 +26,11 @@
 # so Filament's jobs are still discoverable via the marketing crawl path).
 
 # Client portal — proxy so clients see volt-force.com/portal/CLIENTNAME
-/portal        https://app.volt-force.com/portal           200
-/portal/*      https://app.volt-force.com/portal/:splat    200
+/portal        https://app.filamentats.com/portal           200
+/portal/*      https://app.filamentats.com/portal/:splat    200
 
 # Supporting paths that the React SPA needs (relative URLs from the portal)
-/api/*         https://app.volt-force.com/api/:splat       200
-/assets/*      https://app.volt-force.com/assets/:splat    200
-/uploads/*     https://app.volt-force.com/uploads/:splat   200
-/logos/*       https://app.volt-force.com/logos/:splat     200
+/api/*         https://app.filamentats.com/api/:splat       200
+/assets/*      https://app.filamentats.com/assets/:splat    200
+/uploads/*     https://app.filamentats.com/uploads/:splat   200
+/logos/*       https://app.filamentats.com/logos/:splat     200
