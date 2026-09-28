@@ -1,0 +1,32 @@
+# Netlify custom headers for the marketing site (audit 2026-09-26, M35).
+# Scoped to paths Netlify serves itself. /careers/* is a proxy to Filament, which sets its
+# own headers, so it is deliberately not matched here.
+# No CSP yet: every page carries an inline <script> and onclick handlers, so a CSP would need
+# 'unsafe-inline' and buy nothing until those are moved to a file.
+
+/
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+/*.html
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+/images/*
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+
+/brochures/*
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+
+/*.css
+  Cache-Control: public, max-age=86400
+  X-Content-Type-Options: nosniff
+
+/favicon.ico
+  Cache-Control: public, max-age=604800
