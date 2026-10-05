@@ -472,10 +472,11 @@
   }
 
   .tip-icon {
-    font-size: 20px;
-    margin-bottom: 10px;
     display: block;
-    opacity: 0.85;
+    width: 24px;
+    height: 2px;
+    margin-bottom: 14px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
   }
 
   .tip-title {
@@ -489,6 +490,41 @@
     font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.65;
+  }
+
+  /* ── NUMBERED SCAN LIST ── */
+  .scan-list {
+    margin: 12px 0 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: scan;
+  }
+
+  .scan-list li {
+    counter-increment: scan;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    padding: 6px 0 6px 30px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .scan-list li::before {
+    content: counter(scan, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--teal);
+  }
+
+  .tip-card-wide { grid-column: 1 / -1; }
+
+  .tip-card a, .rule-body a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(46,196,182,0.4);
   }
 
   /* ── DIVIDER ── */
@@ -709,6 +745,23 @@
         ATS compliance and visual clarity aren't mutually exclusive. A well-structured resume with clear section breaks, aligned text, and breathing room signals professionalism before a single word is read. Clean and scannable wins.
       </div>
     </div>
+
+    <div class="rule">
+      <div class="rule-header">
+        <span class="rule-num">1.9</span>
+        <span class="rule-title">What a Recruiter Checks in the First Ten Seconds</span>
+      </div>
+      <div class="rule-body">
+        <p>Once your resume clears the software, a recruiter scans it in a fixed order, whether they admit it or not. Put these five things where the eye lands first: the top third of page one.</p>
+        <ol class="scan-list">
+          <li><strong>Target role.</strong> A headline or title line that says what you are and what you do next. "Senior Process Engineer, cathode materials scale-up" beats "Engineer."</li>
+          <li><strong>Location and work authorization.</strong> City and state (or "Remote, US-based"), and your right to work in that country. If a recruiter has to email you to ask, you have already lost a day.</li>
+          <li><strong>Title progression.</strong> Do the titles step up, sideways, or down over time? A clear upward line answers half the questions a hiring manager has before the call.</li>
+          <li><strong>Tenure.</strong> Average time in role. Two years or more per stop reads as stable; a run of nine-month stints reads as a question you will have to answer (see 3.8).</li>
+          <li><strong>Scale.</strong> Team size, budget, throughput, capacity. The numbers that place you on the map before anyone reads a bullet.</li>
+        </ol>
+      </div>
+    </div>
   </div>
 
   <!-- SECTION 2: KEYWORDS -->
@@ -787,6 +840,27 @@
       </div>
       <div class="rule-body">
         Resume scanners and JD analyzers can surface gaps quickly. Use them as a checklist, not a ghost-writer. The goal is a resume that reads like a human wrote it and happens to be perfectly optimized.
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-header">
+        <span class="rule-num">2.7</span>
+        <span class="rule-title">Use AI to Edit, Never to Write</span>
+      </div>
+      <div class="rule-body">
+        <p>A large share of the resumes we now receive were drafted by a chatbot, and it shows. The tools are good at tightening a sentence and terrible at knowing what you actually did. Recruiters and hiring managers have learned the pattern, and an AI-written resume now reads as a candidate who could not be bothered.</p>
+        <p>The tells, in the order we notice them:</p>
+        <ul class="sub-list">
+          <li><strong>The same verbs on every line.</strong> Spearheaded, leveraged, orchestrated, utilized, championed. Real careers do not spearhead everything.</li>
+          <li><strong>Bullets of identical length and shape.</strong> Verb, task, vague benefit, repeated twenty times.</li>
+          <li><strong>A summary that fits anyone.</strong> "Results-driven engineer with a proven track record of driving innovation" describes no one.</li>
+          <li><strong>Punctuation you never use.</strong> Long dashes in every bullet, semicolon chains, and lists of three adjectives.</li>
+          <li><strong>Claims with no numbers.</strong> The tool does not know your defect rate, so it writes "significantly improved."</li>
+        </ul>
+        <div class="callout" style="margin-top:14px;">
+          <strong>How to use the tools well:</strong> Write the first draft yourself, with the real numbers, the real tools, and the real outcomes. Then ask the assistant to cut length, fix grammar, and flag bullets that describe a duty instead of a result. Read every line back in your own voice before it goes out. If you would not say it in an interview, it should not be on the page, because the interview is where the gap shows.
+        </div>
       </div>
     </div>
   </div>
@@ -904,6 +978,23 @@
         Recruiters typically spend 7–10 seconds on an initial scan. Ask someone to look at your resume for 10 seconds and then tell you: what role do you apply for, what's your specialty, and what's one impressive thing you've done? If they can't answer all three, reformat or rewrite.
       </div>
     </div>
+
+    <div class="rule">
+      <div class="rule-header">
+        <span class="rule-num">3.8</span>
+        <span class="rule-title">Explain the Moves Before the Interview Does</span>
+      </div>
+      <div class="rule-body">
+        <p>Short stints, gaps, and step-downs are not disqualifiers. Unexplained ones are. Left blank, the reader fills in the story for you, and the story they pick is rarely the generous one. A single line of context, in the role entry itself, keeps the narrative yours.</p>
+        <ul class="sub-list">
+          <li><strong>Short tenure:</strong> "Company closed Series B round short; site wound down March 2025." or "12-month contract, delivered pilot line on schedule."</li>
+          <li><strong>A gap:</strong> "2023 to 2024: family caregiving; completed Six Sigma Green Belt during this period."</li>
+          <li><strong>A step down in title:</strong> "Moved from Director at a 400-person plant to Senior Engineer at a 30-person startup to get hands back on the process."</li>
+          <li><strong>A layoff:</strong> Say so. "Role eliminated in company-wide reduction (40% of staff), Q1 2025." Everyone in these sectors has seen one; nobody holds it against you.</li>
+        </ul>
+        <p style="margin-top:10px;">One line. No apology, no essay. Then get back to what you built.</p>
+      </div>
+    </div>
   </div>
 
   <!-- SECTION 4: TECHNICAL ROLES NOTE -->
@@ -922,7 +1013,7 @@
         <span class="rule-title">Include Patents and Publications</span>
       </div>
       <div class="rule-body">
-        A dedicated Patents or Publications section is standard and expected in technical roles. List them in a consistent citation format: patent number, title, and filing date. For publications, include journal name and year.
+        A dedicated Patents or Publications section is standard and expected in technical roles. List them in a consistent citation format: patent number, title, and filing date. For publications, include journal name and year. Mark patents as granted or pending; the difference matters to a hiring manager and the omission gets noticed. If you have more than ten publications, list the five most relevant to the role and link to the full list. Leave conference posters off unless the role is academic.
       </div>
     </div>
 
@@ -953,6 +1044,76 @@
       </div>
       <div class="rule-body">
         In technical roles, a well-organized skills section listing instruments, software, characterization methods, or manufacturing processes is genuinely useful, not just keyword padding. Organize by category (Analytical Equipment, Simulation Tools, Process Methods, etc.) for readability.
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-header">
+        <span class="rule-num">4.5</span>
+        <span class="rule-title">Show Scale and Stage</span>
+      </div>
+      <div class="rule-body">
+        <p>In climatech, materials, and Industry 4.0, the first question a hiring manager asks about any achievement is: at what scale? Lab, pilot, or production changes the meaning of every bullet. Say which, every time, and use the units the sector actually uses.</p>
+        <div class="tier-grid" style="margin-top:16px;">
+          <div class="tier">
+            <span class="tier-label">Batteries and Electrification</span>
+            <div class="tier-body">Cell format and chemistry, Ah, Wh/kg, cycle count, C-rate, coin cell vs pouch vs pilot line vs GWh plant</div>
+          </div>
+          <div class="tier">
+            <span class="tier-label">Materials and Process</span>
+            <div class="tier-body">Grams vs kilograms vs tons per year, purity, yield, batch vs continuous, TRL, pilot vs commercial plant</div>
+          </div>
+          <div class="tier">
+            <span class="tier-label">Manufacturing and Industry 4.0</span>
+            <div class="tier-body">Units per shift, OEE, takt time, scrap rate, number of lines or sites, robots or cells deployed, PLC count</div>
+          </div>
+          <div class="tier">
+            <span class="tier-label">Energy and Infrastructure</span>
+            <div class="tier-body">kW vs MW vs GW, capacity factor, sites commissioned, interconnection stage, FOAK vs Nth-of-a-kind</div>
+          </div>
+        </div>
+        <div class="example-pair" style="margin-top:14px;">
+          <div class="ex-bad">
+            <span class="ex-label">✗ Scale unclear</span>
+            Developed a new cathode coating process that improved performance.
+          </div>
+          <div class="ex-good">
+            <span class="ex-label">✓ Scale stated</span>
+            Took a single-layer cathode coating from coin cell to a 20 MWh pilot line, holding first-pass yield above 92% across 3 chemistries.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-header">
+        <span class="rule-num">4.6</span>
+        <span class="rule-title">Location, Work Authorization, and Clearance</span>
+      </div>
+      <div class="rule-body">
+        <p>Three facts decide whether a technical candidate can be hired at all, and they should be findable in five seconds, at the top of the resume, in plain words.</p>
+        <ul class="sub-list">
+          <li><strong>Where you are and where you can be.</strong> "Austin, TX. Open to relocation to the Southeast." If you are remote-only, say so; if you would move for the right role, say that too.</li>
+          <li><strong>Work authorization.</strong> "US citizen," "Permanent resident," "H-1B, transfer required," "OPT STEM through June 2027." Do not make the recruiter guess, and do not leave it off hoping it will not come up. It comes up on the first call.</li>
+          <li><strong>Clearance and export status.</strong> If you hold a clearance or have worked under ITAR or EAR controls, list it. A growing share of advanced manufacturing and energy roles require it, and it is often the difference between a shortlist and a pass.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-header">
+        <span class="rule-num">4.7</span>
+        <span class="rule-title">Moving From Academia to Industry</span>
+      </div>
+      <div class="rule-body">
+        <p>A PhD resume and an industry resume are different documents. The hiring manager does not want your CV; they want to know what you can build for them in the first year. Translate accordingly.</p>
+        <ul class="sub-list">
+          <li><strong>Lead with the outcome, not the thesis.</strong> "Developed a solid-state electrolyte with 3x the ionic conductivity of the baseline; two patents pending, one licensed to a Series A startup" is a resume line. The dissertation title is not.</li>
+          <li><strong>Show you have worked with other people.</strong> Collaborations, undergrad mentoring, industry sponsors, shared equipment you ran. Startups hire for team fit as hard as for chemistry.</li>
+          <li><strong>Count the money and the hardware.</strong> Grants won, instruments commissioned, cost per sample reduced. These are the same numbers a manager reports upward.</li>
+          <li><strong>Cut the poster list.</strong> Five relevant publications, patents, and one link to Google Scholar. Everything else is noise to an industry reader.</li>
+          <li><strong>Name the tools by their industry names.</strong> "Python, SQL, JMP, DOE" reads better than "statistical analysis of experimental data."</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -994,6 +1155,14 @@
       </div>
       <div class="mistake-item">
         <span class="mistake-icon">◆</span>
+        <div><strong>AI-written filler</strong><br>If every bullet starts with spearheaded and none has a number, rewrite it in your own words with your own data.</div>
+      </div>
+      <div class="mistake-item">
+        <span class="mistake-icon">◆</span>
+        <div><strong>Missing location or work authorization</strong><br>Put both at the top. A recruiter who has to ask moves on to the candidate who didn't make them.</div>
+      </div>
+      <div class="mistake-item">
+        <span class="mistake-icon">◆</span>
         <div><strong>Ignoring submission instructions</strong><br>File type, naming conventions, cover letter requirements: follow them.</div>
       </div>
       <div class="mistake-item">
@@ -1015,34 +1184,39 @@
 
     <div class="tips-grid">
       <div class="tip-card">
-        <span class="tip-icon">📄</span>
+        <span class="tip-icon"></span>
         <div class="tip-title">Treat It as a Living Document</div>
         <div class="tip-body">Update with new skills, achievements, and projects regularly: don't wait until you're job searching to remember what you've done.</div>
       </div>
       <div class="tip-card">
-        <span class="tip-icon">🎯</span>
+        <span class="tip-icon"></span>
         <div class="tip-title">Tailor Every Application</div>
         <div class="tip-body">Align keywords, skills, and examples to the specific posting. A tailored resume beats a better-written generic one every time.</div>
       </div>
       <div class="tip-card">
-        <span class="tip-icon">📊</span>
+        <span class="tip-icon"></span>
         <div class="tip-title">Lead With Results</div>
         <div class="tip-body">Prove your value through measurable outcomes. Numbers, percentages, dollar amounts, and timelines all carry more weight than descriptions.</div>
       </div>
       <div class="tip-card">
-        <span class="tip-icon">🔗</span>
+        <span class="tip-icon"></span>
         <div class="tip-title">Sync Your LinkedIn</div>
         <div class="tip-body">Your headline, summary, title history, and dates should align with your resume. Recruiters cross-reference these, and inconsistencies create doubt.</div>
       </div>
       <div class="tip-card">
-        <span class="tip-icon">✨</span>
+        <span class="tip-icon"></span>
         <div class="tip-title">Keep It Polished</div>
         <div class="tip-body">One typo or formatting inconsistency can overshadow an otherwise excellent resume. Finish clean: the final 5% of polish matters more than it should.</div>
       </div>
       <div class="tip-card">
-        <span class="tip-icon">🤝</span>
+        <span class="tip-icon"></span>
+        <div class="tip-title">Write It Yourself</div>
+        <div class="tip-body">Use AI to trim and check, never to invent. The resume has to survive an interview with someone who will ask about every line.</div>
+      </div>
+      <div class="tip-card tip-card-wide">
+        <span class="tip-icon"></span>
         <div class="tip-title">Don't Go It Alone</div>
-        <div class="tip-body">A strong recruiter partner won't just circulate your resume; they'll tell you how to strengthen it for the specific roles and companies you're targeting.</div>
+        <div class="tip-body">A strong recruiter partner won't just circulate your resume; they'll tell you how to strengthen it for the specific roles and companies you're targeting. If you work in climatech, advanced materials, or Industry 4.0, join the <a href="/careers/talent-network">VoltForce Talent Network</a> and we will keep you in view for the roles that fit.</div>
       </div>
     </div>
 
