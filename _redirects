@@ -1,5 +1,6 @@
 /brochure  /brochures/VoltForce_Brochure.pdf  200
 /resume-guide  /VoltForce_Resume_Guide_7.html  200
+/interview-guide  /interview-guide.html  200
 
 # Clean URLs (drop .html) for SEO — 200 rewrites keep both forms working
 /engagement                 /engagement.html                   200
