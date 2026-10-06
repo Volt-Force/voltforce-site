@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filament ATS (Beta) | Applicant Tracking for Technical Hiring Teams | Pipeline, Careers Page &amp; Team Permissions</title>
-<meta name="description" content="Filament ATS (now in beta) is an applicant tracking system for technical hiring teams in Climatech, Advanced Materials and Industry 4.0. Roles, a pipeline board per role, your own searchable candidate pool, a careers page under your brand, and team permissions. Your team runs it. Your data stays yours.">
+<meta name="description" content="Filament ATS (now in beta) is an applicant tracking system for technical hiring teams in Climatech, Advanced Materials and Industry 4.0. Roles, a pipeline board per role, an AI fit score on every new candidate, your own searchable candidate pool, a careers page under your brand, and team permissions. Your team runs it. Your data stays yours.">
 <meta name="keywords" content="Filament ATS, applicant tracking system, ATS for startups, climatech ATS, hiring pipeline software, branded careers page, hiring manager permissions, self-hosted ATS, technical hiring software">
 <link rel="canonical" href="https://volt-force.com/filament.html">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -33,7 +33,7 @@
   "name": "Filament ATS",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web-based",
-  "description": "An applicant tracking system for technical hiring teams in Climatech, Advanced Materials, and Industry 4.0. Roles and departments, a pipeline board per role, a searchable candidate pool, a careers page under your brand, reporting, and team permissions. Self-hosted.",
+  "description": "An applicant tracking system for technical hiring teams in Climatech, Advanced Materials, and Industry 4.0. Roles and departments, a pipeline board per role, an AI fit score on every new candidate, a searchable candidate pool, a careers page under your brand, reporting, and team permissions. Privately hosted.",
   "offers": {
     "@type": "Offer",
     "description": "Subscription, priced per team, quoted on request. Design-partner terms available during the beta.",
@@ -76,23 +76,28 @@
     },
     {
       "@type": "Question",
+      "name": "How does the AI fit score work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "As candidates come in, Filament ATS checks each full resume against the must-have criteria you set for the role and your job description, and shows a percentage fit on the candidate's card. It weighs level, hands-on depth, and real evidence of the work, not keyword overlap. Careers page applicants and candidates your team adds are scored the same way." }
+    },
+    {
+      "@type": "Question",
       "name": "Does Filament ATS include a recruiter?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. Filament ATS is software, and your own team runs it. If you also want a specialist search, VoltForce, the firm that built Filament, offers that as a separate engagement." }
     },
     {
       "@type": "Question",
       "name": "Can Filament ATS replace my current ATS?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Filament ATS covers roles and departments, a pipeline board per role with stage moves, notes and a green/yellow/red call on each candidate, your candidate pool searchable down to resume text, placements, reporting, a careers page with a page for every role, and admin, teammate, and hiring manager permissions. We set up your workspace and help move your open roles and candidates over." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Filament ATS covers roles and departments, a pipeline board per role with stage moves, notes and a green/yellow/red call on each candidate, an AI fit score against your must-haves, your candidate pool searchable down to resume text, placements, reporting, a careers page with a page for every role, and admin, teammate, and hiring manager permissions. We set up your workspace and help move your open roles and candidates over." }
     },
     {
       "@type": "Question",
       "name": "Is my data safe on Filament ATS?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Filament is self-hosted on infrastructure VoltForce owns and operates end to end, with no third-party SaaS vendor holding your pipeline. Every company's workspace is isolated, and an automated isolation test runs before every release. Your pipeline, applicants, and careers page submissions are never used to source candidates for anyone else." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Filament is privately hosted on infrastructure VoltForce owns and operates end to end, with no third-party SaaS vendor holding your pipeline. Every company's workspace is isolated, and an automated isolation test runs before every release. Your pipeline, applicants, and careers page submissions are never used to source candidates for anyone else." }
     },
     {
       "@type": "Question",
       "name": "How is Filament ATS priced?",
-      "acceptedAnswer": { "@type": "Answer", "text": "By subscription, priced per team and quoted on request. Design-partner terms are available during the beta. Reach out at matt@volt-force.com." }
+      "acceptedAnswer": { "@type": "Answer", "text": "By subscription, priced per team and quoted on request. Design-partner terms are available during the beta. Reach out at hello@filamentats.com." }
     }
   ]
 }
@@ -102,310 +107,111 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* ---------- page-specific: Filament ---------- */
-  /* token bridge: alias the page's local names onto the shared palette */
-  :root {
-    --text-bright: var(--ink-95);
-    --text-main: var(--ink-72);
-    --text-muted: var(--ink-58);
-    --text-dim: var(--ink-42);
-    --border-subtle: var(--line);
-    /* Filament ATS accent system — overrides the firm teal/gold on this page only */
-    --teal: #1F5EFF;
-    --gold: #5C8CFF;
-    --line-teal: rgba(31, 94, 255, 0.22);
-    --border-teal: rgba(31, 94, 255, 0.22);
-    /* Filament kit grounds: ink dark + graphite, not firm navy */
-    --navy: #0F1A1C;
-    --navy-deep: #0B1416;
-    --navy-mid: #1B1F24;
-    --navy-surface: #151B1F;
-    --navy-light: #262C33;
-    --teal-dim: rgba(31, 94, 255, 0.12);
-    --teal-glow: rgba(31, 94, 255, 0.25);
-    --gold-dim: rgba(92, 140, 255, 0.10);
+  /* ---------- page-specific: Filament ATS (LIGHT theme, 2026-10-06) ----------
+     Matches the Filament ATS brochure v4 light: bone ground, graphite type, ATS blue
+     accent (#1F5EFF; the lighter #5C8CFF is for dark grounds only), Jost + IBM Plex Mono,
+     no italics, no glows. Scoped to <main class="fa-light"> so the site-wide VoltForce
+     nav and footer stay as they are. */
+  body { font-family: 'Jost', sans-serif; background: #F4F5F6; }
+  .fa-light {
+    --fa-bone: #F4F5F6; --fa-card: #FFFFFF; --fa-panel: #EBEEF1;
+    --fa-ink: #1B1F24; --fa-blue: #1F5EFF; --fa-blue-deep: #1747C7; --fa-blue-tint: #E8EFFF;
+    --ink-95: #1B1F24; --ink-72: #48515A; --ink-58: #5F6973; --ink-42: #8A939E;
+    --line: #DCE1E6; --teal: var(--fa-blue); --gold: var(--fa-blue); --white: #1B1F24;
+    background: var(--fa-bone); color: var(--ink-72);
   }
-
-  /* ---- Filament ATS type system (this page only) ---- */
-  body { font-family: 'Jost', sans-serif; }
-  .sec-head .headline, .headline { font-family: 'Jost', sans-serif; }
-  .eyebrow,
-  .filament-hero-eyebrow, .pillar-eyebrow, .value-callout-eyebrow,
-  .standalone-eyebrow, .engage-card-type, .pillar-visual-block .stat-label {
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+  .fa-light .headline, .fa-light .sec-head .headline { font-family: 'Jost', sans-serif; color: var(--fa-ink); font-weight: 600; }
+  .fa-light em { font-style: normal !important; color: var(--fa-blue); font-weight: inherit; }
+  .fa-light .eyebrow, .fa-light .mono {
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fa-blue);
   }
-  .pillar-visual-block .stat { font-style: normal; }
+  .fa-light .sec-sub { color: var(--ink-72); }
+  .fa-light .btn-primary { background: var(--fa-blue); color: #FFFFFF; box-shadow: none; }
+  .fa-light .btn-primary:hover { background: var(--fa-blue-deep); box-shadow: none; }
 
   /* HERO */
-  .filament-hero {
-    position: relative;
-    min-height: 70vh;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center;
-    padding: 140px 32px 80px;
-    overflow: hidden;
-  }
-  .filament-hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% 45%, rgba(92, 140, 255, 0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(31, 94, 255, 0.10) 0%, transparent 70%),
-      var(--navy);
-  }
+  .filament-hero { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; padding: 150px 32px 90px; overflow: hidden; }
   .filament-hero-grid {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(31, 94, 255, 0.10) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(31, 94, 255, 0.10) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(31,94,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(31,94,255,0.07) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 30%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 30%, transparent 75%);
   }
   .filament-hero-content { position: relative; z-index: 2; max-width: 860px; }
-  .filament-hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 13px;
-    font-size: 12.5px; font-weight: 600; letter-spacing: 0.17em; text-transform: uppercase;
-    color: var(--teal); line-height: 1; margin-bottom: 24px;
-  }
-  .filament-hero-eyebrow::before, .filament-hero-eyebrow::after { content: ""; width: 30px; height: 1px; opacity: 0.85; }
-  .filament-hero-eyebrow::before { background: linear-gradient(90deg, transparent, var(--teal)); }
-  .filament-hero-eyebrow::after  { background: linear-gradient(90deg, var(--teal), transparent); }
-  .filament-hero-headline {
-    font-family: 'Jost', sans-serif;
-    font-size: clamp(46px, 7vw, 82px);
-    font-weight: 600; color: var(--white);
-    letter-spacing: -0.026em; line-height: 1.05; margin-bottom: 24px;
-  }
-  /* Filament kit has no italics: accent words stay upright on this page */
-  .headline em, .sec-head .headline em, .pillar-title em, .value-callout-headline em, .standalone-headline em, .contact-headline em, .filament-hero-headline em, .closing-pull em { font-style: normal !important; }
-  .filament-hero-logo { display:block; height: 64px; width: auto; margin: 0 auto 36px; }
-  .filament-hero-tag { font-family: 'Jost', sans-serif; font-weight: 300; font-size: clamp(20px, 2.4vw, 28px); color: var(--text-main); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .filament-hero-headline em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .filament-hero-sub {
-    font-size: clamp(17px, 1.6vw, 20px);
-    color: var(--text-main); max-width: 680px; margin: 0 auto; line-height: 1.65;
-  }
+  .filament-hero-logo { display: block; height: 64px; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto 36px; }
+  .filament-hero-eyebrow { font-size: 12.5px; font-weight: 500; margin-bottom: 24px; display: inline-block; }
+  .filament-hero-headline { font-family: 'Jost', sans-serif; font-size: clamp(46px, 7vw, 82px); font-weight: 700; color: var(--fa-ink); letter-spacing: -0.026em; line-height: 1.05; margin-bottom: 24px; }
+  .filament-hero-sub { font-size: clamp(17px, 1.6vw, 20px); color: var(--ink-72); max-width: 700px; margin: 0 auto; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border: 1px solid var(--fa-blue); border-radius: 6px; color: var(--fa-blue); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; transition: background 0.25s ease, color 0.25s ease; }
+  .btn-outline:hover { background: var(--fa-blue); color: #FFFFFF; }
+  .btn-outline.quiet { border-color: var(--line); color: var(--ink-58); }
+  .btn-outline.quiet:hover { background: transparent; border-color: var(--fa-blue); color: var(--fa-blue); }
 
-  /* SECTION WRAPPERS */
-  .pillar-section, .portal-section, .value-section, .engage-section, .standalone-section, .contact-section {
-    padding: 100px 32px;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  .section-divider {
-    display: flex; align-items: center; justify-content: center;
-    margin: 0; padding: 16px 0;
-  }
-  .section-divider img { height: 28px; opacity: 0.25; }
+  /* SECTIONS */
+  .pillar-section, .value-section, .engage-section, .standalone-section { padding: 100px 32px; max-width: 1280px; margin: 0 auto; }
+  .section-divider { display: flex; justify-content: center; padding: 16px 0; }
+  .section-divider img { height: 26px; opacity: 0.35; }
 
-  /* PILLAR DEEP DIVE - vertical stack with alternating layout */
-  .pillar-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    padding: 60px 0;
-    align-items: center;
-    border-bottom: 1px solid var(--border-subtle);
-  }
+  /* REAL APP SCREENSHOTS */
+  .shot { margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--fa-card); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot-wide { max-width: 1180px; margin: 0 auto 30px; }
+  .shot-caption { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-42); margin: 0 auto 20px; }
+  .shot-tall { max-width: 330px; margin: 0 auto; }
+
+  /* PILLAR BLOCKS */
+  .pillar-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; padding: 60px 0; align-items: center; border-bottom: 1px solid var(--line); }
   .pillar-block:last-child { border-bottom: none; }
+  .pillar-block > * { min-width: 0; }
   .pillar-block.reverse { direction: rtl; }
   .pillar-block.reverse > * { direction: ltr; }
-  .pillar-text-block .pillar-eyebrow {
-    font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 16px;
-  }
-  .pillar-text-block .pillar-title {
-    font-family: 'Jost', sans-serif;
-    font-size: clamp(30px, 4vw, 42px);
-    font-weight: 600; color: var(--text-bright);
-    letter-spacing: -0.018em; line-height: 1.15; margin-bottom: 20px;
-  }
-  .pillar-text-block .pillar-title em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .pillar-text-block .pillar-body {
-    font-size: 17px; color: var(--text-main); line-height: 1.7; margin-bottom: 20px;
-  }
-  .pillar-text-block .pillar-list { list-style: none; padding: 0; }
-  .pillar-text-block .pillar-list li {
-    padding-left: 24px; position: relative;
-    font-size: 16px; color: var(--text-main); line-height: 1.6;
-    margin-bottom: 12px;
-  }
-  .pillar-text-block .pillar-list li::before {
-    content: ''; position: absolute; left: 0; top: 9px;
-    width: 8px; height: 8px;
-    border-radius: 50%; background: var(--gold);
-  }
-  .pillar-visual-block {
-    background: var(--navy-mid);
-    border-radius: 16px;
-    padding: 40px;
-    border: 1px solid var(--border-subtle);
-    position: relative;
-    overflow: hidden;
-  }
-  .pillar-visual-block::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--teal), var(--gold));
-  }
-  .pillar-visual-block .stat {
-    font-family: 'Jost', sans-serif;
-    font-size: clamp(40px, 5vw, 60px);
-    font-weight: 700; color: var(--gold);
-    font-style: normal;
-    line-height: 1; margin-bottom: 12px;
-  }
-  .pillar-visual-block .stat-label {
-    font-size: 14px; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: 1.5px;
-    margin-bottom: 28px;
-  }
-  .pillar-visual-block .visual-list { list-style: none; padding: 0; }
-  .pillar-visual-block .visual-list li {
-    padding: 12px 0 12px 28px; position: relative;
-    border-top: 1px solid var(--border-subtle);
-    font-size: 15px; color: var(--text-bright);
-  }
-  .pillar-visual-block .visual-list li::before {
-    content: '\2713'; position: absolute; left: 0; top: 13px;
-    color: var(--teal); font-weight: 700; font-size: 14px;
-  }
+  .pillar-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fa-blue); margin-bottom: 16px; }
+  .pillar-title { font-family: 'Jost', sans-serif; font-size: clamp(30px, 4vw, 42px); font-weight: 600; color: var(--fa-ink); letter-spacing: -0.018em; line-height: 1.15; margin-bottom: 20px; }
+  .pillar-body { font-size: 17px; color: var(--ink-72); line-height: 1.7; }
+  .pillar-visual-block { background: var(--fa-card); border-radius: 16px; padding: 40px; border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .pillar-visual-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--fa-blue); }
+  .pillar-visual-block .stat { font-family: 'Jost', sans-serif; font-size: clamp(40px, 5vw, 58px); font-weight: 700; color: var(--fa-blue); line-height: 1; margin-bottom: 12px; }
+  .pillar-visual-block .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-58); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 28px; }
+  .visual-list { list-style: none; padding: 0; margin: 0; }
+  .visual-list li { padding: 12px 0 12px 28px; position: relative; border-top: 1px solid var(--line); font-size: 15px; color: var(--fa-ink); }
+  .visual-list li::before { content: '\2713'; position: absolute; left: 0; top: 13px; color: var(--fa-blue); font-weight: 700; font-size: 14px; }
 
   /* VALUE CALLOUT */
-  .value-callout {
-    background: var(--navy-deep);
-    border-left: 6px solid var(--gold);
-    border-radius: 14px;
-    padding: 60px 56px;
-    max-width: 1000px; margin: 0 auto;
-    text-align: center;
-  }
-  .value-callout-eyebrow {
-    font-size: 13px; font-weight: 600; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--teal); margin-bottom: 18px;
-  }
-  .value-callout-setup {
-    font-size: 17px; color: var(--text-muted); margin-bottom: 24px;
-  }
-  .value-callout-headline {
-    font-family: 'Jost', sans-serif;
-    font-size: clamp(34px, 4.5vw, 50px);
-    font-weight: 600; color: var(--text-bright);
-    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px;
-  }
-  .value-callout-headline em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .value-callout-sub {
-    font-size: 16px; color: var(--text-muted); line-height: 1.6;
-    max-width: 760px; margin: 0 auto;
-  }
+  .value-callout { background: var(--fa-card); border: 1px solid var(--line); border-left: 6px solid var(--fa-blue); border-radius: 14px; padding: 60px 56px; max-width: 1000px; margin: 0 auto; text-align: center; }
+  .value-callout-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fa-blue); margin-bottom: 18px; }
+  .value-callout-setup { font-size: 17px; color: var(--ink-58); margin-bottom: 24px; }
+  .value-callout-headline { font-family: 'Jost', sans-serif; font-size: clamp(34px, 4.5vw, 50px); font-weight: 600; color: var(--fa-ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+  .value-callout-sub { font-size: 16px; color: var(--ink-58); line-height: 1.6; max-width: 760px; margin: 0 auto; }
 
-  /* ENGAGEMENT MINI BLOCK */
-  .engage-cards {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 20px; margin-bottom: 40px;
-  }
-  .engage-card {
-    background: var(--navy-mid);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 28px;
-    position: relative;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-  .engage-card:hover { transform: translateY(-4px); border-color: var(--border-teal); }
-  .engage-card.featured { border-color: var(--gold); }
-  .engage-card.featured::before {
-    content: 'Includes Filament'; position: absolute;
-    top: -12px; left: 24px;
-    background: var(--gold); color: var(--navy-deep);
-    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; padding: 5px 12px; border-radius: 4px;
-  }
-  .engage-card-type {
-    font-size: 12px; font-weight: 600; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--teal);
-    margin-bottom: 12px;
-  }
-  .engage-card-title {
-    font-family: 'Jost', sans-serif;
-    font-size: 22px; font-weight: 600; color: var(--text-bright);
-    letter-spacing: -0.01em; margin-bottom: 12px;
-  }
-  .engage-card-text {
-    font-size: 14px; color: var(--text-muted); line-height: 1.55;
-  }
-  .engage-link {
-    text-align: center; margin-top: 12px;
-  }
-  .engage-link a {
-    color: var(--teal); font-size: 14px; font-weight: 600;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
-  }
+  /* GETTING STARTED */
+  .engage-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .engage-card { background: var(--fa-card); border: 1px solid var(--line); border-top: 4px solid var(--fa-blue); border-radius: 12px; padding: 28px; transition: transform 0.3s ease; }
+  .engage-card:hover { transform: translateY(-4px); }
+  .engage-card-type { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fa-blue); margin-bottom: 12px; }
+  .engage-card-title { font-family: 'Jost', sans-serif; font-size: 22px; font-weight: 600; color: var(--fa-ink); margin-bottom: 12px; }
+  .engage-card-text { font-size: 14.5px; color: var(--ink-58); line-height: 1.6; }
 
-  /* STANDALONE FILAMENT */
-  .standalone-callout {
-    background: var(--navy-surface);
-    border-radius: 14px;
-    padding: 48px;
-    max-width: 880px; margin: 0 auto;
-    text-align: center;
-    border: 1px solid var(--border-teal);
-  }
-  .standalone-eyebrow {
-    font-size: 12px; font-weight: 600; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--teal); margin-bottom: 18px;
-  }
-  .standalone-headline {
-    font-family: 'Jost', sans-serif;
-    font-size: clamp(26px, 3.5vw, 36px);
-    font-weight: 600; color: var(--text-bright);
-    letter-spacing: -0.018em; line-height: 1.2; margin-bottom: 16px;
-  }
-  .standalone-headline em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .standalone-sub {
-    font-size: 16px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.7;
-  }
-  .standalone-cta {
-    display: inline-block;
-    padding: 12px 28px;
-    background: transparent;
-    color: var(--teal);
-    font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
-    border: 1px solid var(--teal); border-radius: 6px;
-    transition: background 0.25s ease, color 0.25s ease;
-  }
-  .standalone-cta:hover {
-    background: var(--teal);
-    color: var(--white);
-  }
+  /* RECRUITING NOTE */
+  .standalone-callout { background: var(--fa-panel); border-radius: 14px; padding: 48px; max-width: 880px; margin: 0 auto; text-align: center; }
+  .standalone-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fa-blue); margin-bottom: 18px; }
+  .standalone-headline { font-family: 'Jost', sans-serif; font-size: clamp(26px, 3.5vw, 36px); font-weight: 600; color: var(--fa-ink); line-height: 1.2; margin-bottom: 16px; }
+  .standalone-sub { font-size: 16px; color: var(--ink-58); margin-bottom: 28px; line-height: 1.7; }
 
   /* CONTACT */
-  .contact-block {
-    text-align: center;
-    padding: 80px 32px 60px;
-    max-width: 760px; margin: 0 auto;
-  }
-  .contact-headline {
-    font-family: 'Jost', sans-serif;
-    font-size: clamp(34px, 4.5vw, 48px);
-    font-weight: 600; color: var(--text-bright);
-    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 24px;
-  }
-  .contact-headline em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .contact-email {
-    margin-top: 24px;
-    font-size: 14px; color: var(--text-muted);
-  }
-  .contact-email a { color: var(--teal); }
+  .contact-block { text-align: center; padding: 80px 32px 90px; max-width: 760px; margin: 0 auto; }
+  .contact-headline { font-family: 'Jost', sans-serif; font-size: clamp(34px, 4.5vw, 48px); font-weight: 600; color: var(--fa-ink); line-height: 1.15; margin-bottom: 26px; }
+  .contact-email { margin-top: 24px; font-size: 14px; color: var(--ink-58); }
+  .contact-email a, .contact-dl a { color: var(--fa-blue); border-bottom: 1px solid currentColor; }
+  .contact-dl { margin-top: 18px; font-size: 13px; color: var(--ink-42); }
+  .tagline-close { margin-top: 40px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 22px; color: var(--fa-ink); }
 
-  /* MOBILE (page-specific sections only; nav + footer handled by styles.css) */
   @media (max-width: 900px) {
-    .filament-hero { padding: 110px 20px 60px; min-height: auto; }
-    .pillar-section, .portal-section, .value-section, .engage-section, .standalone-section { padding: 70px 20px; }
-    .pillar-block { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
+    .filament-hero { padding: 115px 20px 60px; }
+    .pillar-section, .value-section, .engage-section, .standalone-section { padding: 70px 20px; }
+    .pillar-block { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 40px 0; }
+    .filament-hero-logo { height: auto; width: 82%; }
     .pillar-block.reverse { direction: ltr; }
     .engage-cards { grid-template-columns: 1fr; }
     .value-callout { padding: 36px 24px; }
@@ -435,37 +241,41 @@
   </div>
 </nav>
 
+<main class="fa-light">
+
 <!-- HERO -->
 <section class="filament-hero">
-  <div class="filament-hero-bg"></div>
   <div class="filament-hero-grid"></div>
   <div class="filament-hero-content">
-    <img src="images/filament-ats-lockup-reversed.png" alt="Filament ATS" class="filament-hero-logo">
-    <div class="filament-hero-eyebrow">Applicant Tracking · Now in Beta</div>
+    <img src="images/filament-ats-lockup.png" alt="Filament ATS" class="filament-hero-logo">
+    <div class="filament-hero-eyebrow mono">Applicant Tracking · Now in Beta</div>
     <h1 class="filament-hero-headline"><em>Switch on</em> your hiring.</h1>
-    <p class="filament-hero-sub">Filament ATS is an applicant tracking system for technical hiring teams. Your roles, your pipeline, your candidates, your careers page, and your whole hiring team, working from the same live view. Your team runs it. Your data stays yours.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
-      <a href="/brochures/Filament_ATS_Brochure.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:rgba(31, 94, 255,0.10);border:1px solid rgba(31, 94, 255,0.22);border-radius:6px;color:var(--teal);font-size:13px;font-weight:600;letter-spacing:0.5px;text-decoration:none;transition:background 0.25s ease,color 0.25s ease;" onmouseover="this.style.background='var(--teal)';this.style.color='var(--white)';" onmouseout="this.style.background='rgba(31, 94, 255,0.10)';this.style.color='var(--teal)';">Download Filament ATS Brochure &darr;</a>
-      <a href="/brochures/Filament_One_Pager.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:transparent;border:1px solid rgba(255,255,255,0.18);border-radius:6px;color:var(--text-muted);font-size:13px;font-weight:600;letter-spacing:0.5px;text-decoration:none;transition:color 0.25s ease,border-color 0.25s ease;" onmouseover="this.style.color='var(--teal)';this.style.borderColor='var(--teal)';" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='rgba(255,255,255,0.18)';">One-Pager &darr;</a>
+    <p class="filament-hero-sub">Filament ATS is an applicant tracking system for technical hiring teams. Your roles, your pipeline, your candidates, your careers page, and your whole hiring team, working from the same live view, with an AI fit score on every new candidate. Your team runs it. Your data stays yours.</p>
+    <div class="hero-actions">
+      <a href="/brochures/Filament_ATS_Brochure.pdf" download class="btn-outline">Download the Filament ATS Brochure &darr;</a>
+      <a href="/brochures/Filament_One_Pager.pdf" download class="btn-outline quiet">One-Pager &darr;</a>
     </div>
   </div>
 </section>
 
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
+<div class="section-divider"><img src="images/filament-ats-mark.png" alt=""></div>
 
-<!-- PILLAR 01 - THE WORKFLOW -->
+<!-- 01 THE WORKFLOW -->
 <section class="pillar-section">
   <div class="sec-head">
-    <div class="eyebrow">The Workflow</div>
+    <div class="eyebrow">01 · The Workflow</div>
     <h2 class="headline">See every hire <em>in full light.</em></h2>
     <p class="sec-sub">Open a role, collect applicants, move them through your stages, and make the call, all in one place. Every candidate, every stage, and every note sits on one record your whole team can see.</p>
   </div>
+
+  <figure class="shot shot-wide reveal-up"><img src="images/filament-ats/board.webp" alt="The Filament ATS pipeline board for a Senior Process Engineer role, with candidates in Sourced, Longlist, Shortlist, and Submitted" loading="lazy" width="2000" height="1000"></figure>
+  <p class="shot-caption">The pipeline board, as your team sees it</p>
 
   <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Jobs + Pipeline</div>
       <h3 class="pillar-title">A pipeline board for <em>every role.</em></h3>
-      <p class="pillar-body">Create and edit roles, organize them by department, and assign each one to the hiring managers who own it. Every role gets its own board, Sourced through Hired. Move candidates, leave notes, and rate them as interviews happen.</p>
+      <p class="pillar-body">Create and edit roles, organize them by department, and assign each one to the hiring managers who own it. Every role gets its own board, Sourced through Hired. Move candidates, leave notes, and make a green, yellow, or red call on each one as interviews happen.</p>
     </div>
     <div class="pillar-visual-block">
       <div class="stat">One board</div>
@@ -483,7 +293,7 @@
     <div class="pillar-text-block">
       <div class="pillar-eyebrow">Candidate Pool</div>
       <h3 class="pillar-title">Your candidates, <em>searchable to the resume.</em></h3>
-      <p class="pillar-body">Applicants, people your team adds, and anyone you bring over from your old system live in one pool that belongs to you. Search it down to resume text, so the strong runner-up from last spring is one search away when the next role opens.</p>
+      <p class="pillar-body">Applicants, people your team adds, and anyone you bring over from your old system live in one pool that belongs to you. Search it down to resume text, so the strong runner-up from last spring is one search away when the next role opens. Save anyone from LinkedIn in one click with the Chrome extension.</p>
     </div>
     <div class="pillar-visual-block">
       <div class="stat">Your pool</div>
@@ -496,35 +306,69 @@
       </ul>
     </div>
   </div>
+</section>
+
+<div class="section-divider"><img src="images/filament-ats-mark.png" alt=""></div>
+
+<!-- 02 AI FIT -->
+<section class="pillar-section">
+  <div class="sec-head">
+    <div class="eyebrow">02 · AI Fit</div>
+    <h2 class="headline">Every candidate, <em>scored for fit.</em></h2>
+    <p class="sec-sub">As candidates come in, Filament ATS checks each full resume against your must-have criteria and job description, and puts a percentage fit right on their card. Your team starts with the people worth a conversation.</p>
+  </div>
 
   <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
-      <div class="pillar-eyebrow">Careers Page</div>
-      <h3 class="pillar-title">Publish a role. <em>It's live.</em></h3>
-      <p class="pillar-body">Filament ATS includes a careers page under your company name and your brand color, with its own page for every role. Publish a role and it is live. Every application lands straight in that role's pipeline, with no inbox to forward and nothing to retype.</p>
+      <div class="pillar-eyebrow">Resume + Must-Haves</div>
+      <h3 class="pillar-title">A fit score on <em>every new candidate.</em></h3>
+      <p class="pillar-body">The score weighs the full resume against the must-haves you set and the job description you wrote: level, hands-on depth, and real evidence of the work, not keyword overlap. Careers page applicants and the candidates your team adds are scored the same way, automatically, and the score sits right on each card in Sourced, your first look.</p>
     </div>
-    <div class="pillar-visual-block">
-      <div class="stat">Your brand</div>
-      <div class="stat-label">Candidates apply to you, not to a job board</div>
-      <ul class="visual-list">
-        <li>Your company name and accent color</li>
-        <li>A shareable page for every role</li>
-        <li>Publish or pull a role whenever you like</li>
-        <li>Applications land in the pipeline</li>
-      </ul>
+    <figure class="shot shot-tall"><img src="images/filament-ats/fit-sourced.webp" alt="The Sourced column in Filament ATS, each candidate card showing an AI fit percentage" loading="lazy" width="620" height="1200"></figure>
+  </div>
+
+  <div class="pillar-block reverse reveal-up">
+    <div class="pillar-text-block">
+      <div class="pillar-eyebrow">You Set the Bar</div>
+      <h3 class="pillar-title">Your must-haves. <em>Your call.</em></h3>
+      <p class="pillar-body">Add must-haves and nice-to-haves to any role you run. A candidate missing a must-have is flagged, and a nice-to-have adds to the score without ruling anyone out. Edit the role and live candidates are scored again. The score is a head start. The green, yellow, or red call stays with your team.</p>
     </div>
+    <figure class="shot"><img src="images/filament-ats/fit-criteria.webp" alt="The must-haves and nice-to-haves editor on a Filament ATS role" loading="lazy" width="1200" height="771"></figure>
   </div>
 </section>
 
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
+<div class="section-divider"><img src="images/filament-ats-mark.png" alt=""></div>
 
-<!-- PILLAR 02 - YOUR TEAM -->
+<!-- 03 YOUR CAREERS PAGE -->
 <section class="pillar-section">
   <div class="sec-head">
-    <div class="eyebrow">Your Team</div>
+    <div class="eyebrow">03 · Your Careers Page</div>
+    <h2 class="headline">Publish a role. <em>It's live.</em></h2>
+    <p class="sec-sub">Filament ATS includes a careers page under your name and your brand color. Publish a role and it is live. Every application lands straight in that role's pipeline.</p>
+  </div>
+
+  <div class="pillar-block reveal-up">
+    <div class="pillar-text-block">
+      <div class="pillar-eyebrow">Under Your Brand</div>
+      <h3 class="pillar-title">Candidates apply <em>to you.</em></h3>
+      <p class="pillar-body">Your company name, your accent color, and a shareable page for every role, ready for LinkedIn, email, or anywhere else. Publish or pull a role whenever you like, grouped by department. Applications land in the pipeline, with no inbox to forward and nothing to retype.</p>
+    </div>
+    <figure class="shot"><img src="images/filament-ats/careers.webp" alt="A Filament ATS careers page listing open roles" loading="lazy" width="1600" height="977"></figure>
+  </div>
+</section>
+
+<div class="section-divider"><img src="images/filament-ats-mark.png" alt=""></div>
+
+<!-- 04 YOUR TEAM -->
+<section class="pillar-section">
+  <div class="sec-head">
+    <div class="eyebrow">04 · Your Team</div>
     <h2 class="headline">Everyone sees <em>what they should.</em></h2>
     <p class="sec-sub">Add teammates and hiring managers yourself, and decide what each person can see and do. Admins run the workspace. Hiring managers stay focused on their own roles.</p>
   </div>
+
+  <figure class="shot shot-wide reveal-up"><img src="images/filament-ats/team.webp" alt="Filament ATS team settings: admins, a full user, and a hiring manager with per-person permissions" loading="lazy" width="1800" height="708"></figure>
+  <p class="shot-caption">Per-person permissions, set by your admins</p>
 
   <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
@@ -563,27 +407,27 @@
   </div>
 </section>
 
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
+<div class="section-divider"><img src="images/filament-ats-mark.png" alt=""></div>
 
-<!-- PILLAR 03 - YOUR DATA -->
+<!-- 05 YOUR DATA -->
 <section class="pillar-section">
   <div class="sec-head">
-    <div class="eyebrow">Your Data</div>
+    <div class="eyebrow">05 · Your Data</div>
     <h2 class="headline">Your data. <em>Yours alone.</em></h2>
     <p class="sec-sub">Candidate data is confidential, and the people in your pipeline trust you with it. Filament ATS is built so it stays yours.</p>
   </div>
 
   <div class="pillar-block reveal-up">
     <div class="pillar-text-block">
-      <div class="pillar-eyebrow">Self-Hosted + Isolated</div>
-      <h3 class="pillar-title">Self-hosted and <em>walled off.</em></h3>
+      <div class="pillar-eyebrow">Privately Hosted + Isolated</div>
+      <h3 class="pillar-title">Privately hosted and <em>walled off.</em></h3>
       <p class="pillar-body">Filament runs on infrastructure VoltForce owns and operates end to end, so no third-party SaaS vendor holds your pipeline. Every company's workspace is isolated from every other, and an automated isolation test runs before every release. A release that fails it does not ship.</p>
     </div>
     <div class="pillar-visual-block">
       <div class="stat">Isolated</div>
       <div class="stat-label">Tested before every release</div>
       <ul class="visual-list">
-        <li>Self-hosted infrastructure</li>
+        <li>Privately hosted infrastructure</li>
         <li>No third-party SaaS vendor in between</li>
         <li>Every workspace walled off</li>
         <li>Isolation test gates every release</li>
@@ -610,9 +454,9 @@
   </div>
 </section>
 
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
+<div class="section-divider"><img src="images/filament-ats-mark.png" alt=""></div>
 
-<!-- VALUE CALLOUT -->
+<!-- SIMPLE TO START -->
 <section class="value-section">
   <div class="value-callout reveal-up">
     <div class="value-callout-eyebrow">Simple to Start</div>
@@ -621,8 +465,6 @@
     <div class="value-callout-sub">Priced per team and quoted for you. Design-partner terms are available during the beta, and we will walk you through it on your own roles.</div>
   </div>
 </section>
-
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
 
 <!-- GETTING STARTED -->
 <section class="engage-section">
@@ -650,27 +492,26 @@
   </div>
 </section>
 
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
-
 <!-- OPTIONAL: RECRUITING IS SEPARATE -->
 <section class="standalone-section">
   <div class="standalone-callout reveal-up">
     <div class="standalone-eyebrow">Need Recruiting Help Too?</div>
     <h3 class="standalone-headline">Filament ATS is software. <em>Search is its own engagement.</em></h3>
     <p class="standalone-sub">Filament ATS does not include a recruiter. If you also want a specialist search, VoltForce, the firm that built Filament, offers that as a separate engagement.</p>
-    <a href="engagement.html" class="standalone-cta">See VoltForce Recruiting</a>
+    <a href="engagement.html" class="btn-outline">See VoltForce Recruiting</a>
   </div>
 </section>
-
-<div class="section-divider"><img src="images/filament-ats-mark-reversed.png" alt=""></div>
 
 <!-- CONTACT -->
 <section class="contact-block">
   <h2 class="contact-headline">See it on <em>your own roles.</em></h2>
-  <a href="mailto:matt@volt-force.com?subject=Filament%20ATS" class="btn-primary">Reach Out for Pricing</a>
-  <div class="contact-email">Or email <a href="mailto:matt@volt-force.com">matt@volt-force.com</a></div>
-  <div style="margin-top:20px;font-size:13px;color:var(--text-dim);">Want the read-along version first? <a href="/brochures/Filament_ATS_Brochure.pdf" download style="color:var(--teal);border-bottom:1px solid currentColor;">Download the Filament ATS brochure</a>.</div>
+  <a href="mailto:hello@filamentats.com?subject=Filament%20ATS" class="btn-primary">Reach Out for Pricing</a>
+  <div class="contact-email">Or email <a href="mailto:hello@filamentats.com">hello@filamentats.com</a></div>
+  <div class="contact-dl">Want the read-along version first? <a href="/brochures/Filament_ATS_Brochure.pdf" download>Download the Filament ATS brochure</a>.</div>
+  <div class="tagline-close"><em>Switch on</em> your hiring.</div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
