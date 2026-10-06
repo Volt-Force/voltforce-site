@@ -1,5 +1,12 @@
 [
   {
+    "title": "The Interview Guide",
+    "description": "Every interview comes down to three questions. The guide covers how to answer them, what to prepare, what to ask, and what not to do.",
+    "image": "images/resource-interview-guide.png",
+    "url": "/interview-guide",
+    "tag": "Guide"
+  },
+  {
     "title": "Reshoring vs. Offshoring: What Industry 4.0 Hiring Tells Us in 2026",
     "description": "A specialist recruiter's read on the reshoring story in 2026. Which sectors are genuinely rebuilding domestic capacity, what's quietly nearshoring to Mexico, and why senior talent (not capital) is the binding constraint on the buildout.",
     "image": "images/industry40.jpg",
@@ -19,13 +26,6 @@
     "image": "images/materials.jpg",
     "url": "https://volt-force.com/critical-minerals-talent-war.html",
     "tag": "VoltForce Insights"
-  },
-  {
-    "title": "The Interview Guide",
-    "description": "Every interview comes down to three questions. The guide covers how to answer them, what to prepare, what to ask, and what not to do.",
-    "image": "images/resource-interview-guide.png",
-    "url": "/interview-guide",
-    "tag": "Guide"
   },
   {
     "title": "The Modern Resume Guide",
