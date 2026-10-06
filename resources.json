@@ -21,8 +21,15 @@
     "tag": "VoltForce Insights"
   },
   {
+    "title": "The Interview Guide",
+    "description": "Every interview comes down to three questions. The guide covers how to answer them, what to prepare, what to ask, and what not to do.",
+    "image": "images/resource-interview-guide.png",
+    "url": "/interview-guide",
+    "tag": "Guide"
+  },
+  {
     "title": "The Modern Resume Guide",
-    "description": "A practical guide to writing resumes that pass ATS filters, impress recruiters, and reflect the depth of your real experience. Built for the modern job market.",
+    "description": "A practical guide to writing a resume that gets read by both the ATS and the recruiter, and reflects the depth of your real experience.",
     "image": "images/resource-resume-guide.png",
     "url": "/resume-guide",
     "tag": "Guide"
