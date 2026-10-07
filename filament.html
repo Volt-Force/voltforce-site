@@ -162,6 +162,11 @@
   .shot-tall { max-width: 330px; margin: 0 auto; }
 
   /* PILLAR BLOCKS */
+  .ext-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 8px 0 56px; }
+  .ext-step { border: 1px solid var(--line); border-top: 3px solid var(--fa-blue); border-radius: 10px; background: #fff; padding: 24px 26px; }
+  .ext-step-num { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--fa-blue); font-weight: 700; margin-bottom: 10px; }
+  .ext-step p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--fa-ink); }
+  @media (max-width: 800px) { .ext-steps { grid-template-columns: minmax(0, 1fr); padding-bottom: 40px; } }
   .pillar-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; padding: 60px 0; align-items: center; border-bottom: 1px solid var(--line); }
   .pillar-block:last-child { border-bottom: none; }
   .pillar-block > * { min-width: 0; }
@@ -324,6 +329,12 @@
         <li>Access set per teammate by your admins</li>
       </ul>
     </div>
+  </div>
+
+  <div class="ext-steps reveal-up">
+    <div class="ext-step"><div class="ext-step-num">1 &middot; Save</div><p>Open any LinkedIn profile and add it to Filament with one click.</p></div>
+    <div class="ext-step"><div class="ext-step-num">2 &middot; Add to a job</div><p>Pick the role and stage as you save, so they land on the right pipeline.</p></div>
+    <div class="ext-step"><div class="ext-step-num">3 &middot; Already in?</div><p>See at once if they're on file and which pipelines they're in.</p></div>
   </div>
 </section>
 
