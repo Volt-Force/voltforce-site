@@ -20,6 +20,9 @@
 # Careers — proxy to Filament (NAS-served) so users see volt-force.com/careers
 /careers       https://app.filamentats.com/careers          200
 /careers/*     https://app.filamentats.com/careers/:splat   200
+# Job sitemap: Filament generates one per published role; Netlify owns /sitemap.xml so it is
+# exposed here and advertised from robots.txt (2026-10-13).
+/careers-sitemap.xml  https://app.filamentats.com/sitemap.xml  200
 
 # Note: /sitemap.xml and /robots.txt previously proxied to Filament.
 # As of 2026-06-18 they are served directly by Netlify from this repo
